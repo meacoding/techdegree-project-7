@@ -1,0 +1,66 @@
+//=================================
+//  Grids
+//=================================
+
+//     .container
+//     .grid__row
+//     .grid__col--2
+//     .grid__col--3
+//     .grid__col--4
+//     .grid__col--5
+//     .grid__col--6
+//     .grid__col--7
+//     .grid__col--8
+//     .grid__col--9
+//     .grid__col--10
+//     .grid__col--11
+//     .grid__col--12
+//     .centered
+//     .theme__colors
+
+// .grid__row {
+//   margin-bottom: 60px;
+//   box-sizing: border-box;
+
+//   @include mq($break-m) {
+//     @include flex($direct: row);
+//     align-items: center;
+//   }
+// }
+
+// @each $grid-width in $grid-widths {
+//   #{$grid}#{$grid-width} {
+//     flex: #{$grid-width};
+//     @extend %button-mixin-grids;
+//     @include mq($break-m) {
+//       @include flex;
+//       margin: auto 7px;
+//     }
+//   }
+// }
+
+// .theme__colors {
+//   @include button($themes, $grid);
+//   @include flex;
+//   padding-left: 10px;
+//   padding-right: 10px;
+//   font-weight: bold;
+
+//   @include mq($break-m) {
+//     justify-content: center;
+//   }
+// }
+
+// .centered {
+//   @include mq($break-m) {
+//     @include margin-hor(auto);
+//     max-width: calc(100% * 7 / 12);
+//     justify-content: center;
+//   }
+// }
+
+// .card {
+//   @include mq($break-m) {
+//     margin-right: 5%;
+//   }
+// }

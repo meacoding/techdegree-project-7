@@ -1,0 +1,68 @@
+//=================================
+//  Navigation
+//=================================
+
+// .nav__item
+
+// .nav {
+//   @include margin-hor(auto);
+//   @include flex($direct: column);
+
+//   @include mq($break-m) {
+//     @include flex($direct: row);
+//   }
+
+//   @include mq($break-l) {
+//     margin-left: 100px;
+//   }
+
+//   @include mq($break-xl) {
+//     margin-left: 150px;
+//   }
+
+//   .nav__item {
+//     @include flex;
+//     justify-content: flex-end;
+//     height: 50px;
+//     border-radius: 5px;
+//     color: $color-text-dark;
+//     margin-left: 5px;
+
+//     @include mq($break-m) {
+//       @include perfect-center;
+//       height: 40px;
+//     }
+
+//     @include mq($break-l) {
+//       margin-left: 25px;
+//     }
+
+//     &:active,
+//     &:hover {
+//       background-color: $color-nav;
+//     }
+
+//     &:first-child {
+//       background-color: $color-nav;
+
+//       * {
+//         color: white;
+//       }
+//     }
+
+//     * {
+//       @include flex;
+//       @include perfect-center;
+//       color: $color-text-dark;
+//       text-decoration: none;
+//       padding: 0 10px;
+//       width: 100%;
+//       height: 100%;
+
+//       &:active,
+//       &:hover {
+//         color: #fff;
+//       }
+//     }
+//   }
+// }

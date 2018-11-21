@@ -1,0 +1,35 @@
+//=================================
+//  Buttons
+//=================================
+
+// .btn--default
+// .btn--success
+// .btn--error
+// .btn--warning
+// .btn--info
+// .theme__colors
+
+// @each $btn, $color in $btns {
+//   .btn--#{$btn} {
+//     @extend %button-mixin-buttons;
+
+//     @include mq($break-m) {
+//       @include margin-hor(10px);
+//     }
+
+//     @include mq($break-xl) {
+//       @include margin-hor(20px);
+//     }
+//   }
+// }
+
+// .theme__colors {
+//   @include button($btns, $button);
+//   @include mq($break-m) {
+//     flex-grow: 1;
+//     width: inherit;
+//   }
+//   @include mq($break-xl) {
+//     padding: 0 50px;
+//   }
+// }

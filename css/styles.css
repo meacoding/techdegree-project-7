@@ -1,0 +1,36 @@
+.body-container {
+  height: 100vh;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 90px auto;
+  grid-template-rows: 70px auto;
+  grid-template-areas: "header header" "nav main";
+}
+
+header {
+  background-color: #7477bf;
+  grid-area: header;
+}
+
+nav {
+  background-color: #4d4c72;
+  grid-area: nav;
+}
+
+main {
+  background-color: #fff;
+  grid-area: main;
+}
+
+.main-container {
+  display: grid;
+  grid-template-columns: 155px auto;
+  grid-template-rows: 70px auto;
+  grid-template-areas: "header header" "nav main";
+}
+
+.tab-and-search {
+  display: grid;
+}
+
+/*# sourceMappingURL=styles.css.map */
