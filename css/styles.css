@@ -1,3 +1,9 @@
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: 13px;
+  color: #666666;
+}
+
 .body-container {
   height: 100vh;
   margin: 0;
@@ -24,13 +30,102 @@ main {
 
 .main-container {
   display: grid;
-  grid-template-columns: 155px auto;
-  grid-template-rows: 70px auto;
-  grid-template-areas: "header header" "nav main";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: minmax(min-content, max-content) 100px;
+  grid-template-areas: "tab-and-search tab-and-search" "traffic        traffic" "daily-traffic  mobile-users" "social-stats   social-stats" "new-members    recent-activity" "message-user   settings";
+}
+
+.tab-and-search {
+  background-color: white;
+  grid-area: tab-and-search;
+}
+
+.traffic {
+  background-color: burlywood;
+  grid-area: traffic;
+}
+
+.daily-traffic {
+  background-color: dodgerblue;
+  grid-area: daily-traffic;
+}
+
+.mobile-users {
+  background-color: tomato;
+  grid-area: mobile-users;
+}
+
+.social-stats {
+  background-color: white;
+  grid-area: social-stats;
+}
+
+.new-members {
+  background-color: tomato;
+  grid-area: new-members;
+}
+
+.recent-activity {
+  background-color: dodgerblue;
+  grid-area: recent-activity;
+}
+
+.message-user {
+  background-color: skyblue;
+  grid-area: message-user;
+}
+
+.settings {
+  background-color: chartreuse;
+  grid-area: settings;
 }
 
 .tab-and-search {
   display: grid;
+  grid-template-columns: 155px auto;
+  grid-template-rows: 65px minmax(min-content, max-content);
+  grid-template-areas: "tab   search" "alert alert";
+}
+
+.tab {
+  background-color: #fff;
+  grid-area: tab;
+  font-size: 20px;
+  text-align: center;
+}
+
+.search {
+  background-color: #fbfbfb;
+  border-left: 1px solid #dfdfdf;
+  border-bottom: 1px solid #dfdfdf;
+  grid-area: search;
+}
+
+.alert {
+  justify-content: center;
+  background-color: #fff;
+  grid-area: alert;
+  padding: 25px 25px;
+}
+
+.alert-message {
+  display: flex;
+  justify-content: space-between;
+  background-color: #7377bf;
+  height: 40px;
+  color: white;
+  border-radius: 3px;
+  padding: 0 15px;
+}
+.alert-message p {
+  align-self: center;
+}
+.alert-message span {
+  float: right;
+  align-self: center;
+  justify-self: flex-end;
+  font-size: 16px;
+  font-weight: 700;
 }
 
 /*# sourceMappingURL=styles.css.map */
