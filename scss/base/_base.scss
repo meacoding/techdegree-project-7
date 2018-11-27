@@ -1,4 +1,23 @@
 //=================================
+//  Keyframes
+//=================================
+
+@keyframes ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  33% {
+    transform: rotate(-10deg);
+  }
+  66% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+//=================================
 //  Base
 //=================================
 
@@ -34,7 +53,14 @@ header {
     display: flex;
     align-items: center;
     .bell {
+      cursor: pointer;
       height: 25px;
+      &:hover {
+        animation: ring .3s forwards;
+      }
+    }
+    .bell-itself {
+      transform-origin: 22px 0%;
     }
     .bell-circle {
       fill: lightgreen;
@@ -46,13 +72,13 @@ header {
       background-color: #5d61bf;
     }
     .member-img {
+      cursor: pointer;
       height: 33px;
       width: 33px;
       border-radius: 50%;
-      // background: yellow url("../images/member-0.jpg") center center / cover
-      //   no-repeat;
     }
     .member-name {
+      cursor: pointer;
       margin-left: 10px;
     }
   }
@@ -62,6 +88,45 @@ nav {
   background-color: #4d4c72;
   grid-area: nav;
 }
+.nav-item {
+  &:hover{
+    // background-color: red;
+    cursor: pointer;
+  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  margin: 16px 0;
+  .nav-active {
+    height: 100%;
+    width: 3px;
+    background-color: #85DB80;
+    border-radius: 0 3px 3px 0;
+  }
+  .nav-balance {
+    width: 3px;
+    height: 100%;
+  }
+  .nav-icon {
+    height: 32px;
+    &:hover,
+    &:active{
+      height: 35px;
+    }
+  }
+  //Hard-coded in place of dynamic JS
+  #nav-members,
+  #nav-visits,
+  #nav-settings {
+    opacity: 0;
+  }
+  //Hard-coded in place of dynamic JS
+  .nav-inactive {
+    fill: #A6A6B9;
+  }
+}
+
 main {
   background-color: #fff;
   grid-area: main;
@@ -71,7 +136,7 @@ main {
 .main-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: minmax(min-content, max-content) 100px;
+  grid-template-rows: minmax(min-content, max-content) 350px 350px;
   grid-template-areas:
     "tab-and-search tab-and-search"
     "traffic        traffic"
@@ -85,8 +150,14 @@ main {
   grid-area: tab-and-search;
 }
 .traffic {
-  background-color: burlywood;
+  // background-color: burlywood;
   grid-area: traffic;
+  canvas {
+    box-sizing: border-box;
+    letter-spacing: 2px;
+    // padding-bottom: 30px;
+    // max-height: 350px;
+  }
 }
 .daily-traffic {
   background-color: dodgerblue;
@@ -159,5 +230,8 @@ main {
     align-self: center;
     justify-self: flex-end;
     font-weight: 700;
+    &#hide:hover{
+      cursor: pointer;
+    }
   }
 }
