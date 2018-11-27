@@ -14,8 +14,40 @@ body {
 }
 
 header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
   background-color: #7477bf;
+  color: #fff;
   grid-area: header;
+}
+header p {
+  align-self: center;
+  font-size: 20px;
+}
+header div {
+  display: flex;
+  align-items: center;
+}
+header div .bell {
+  height: 25px;
+}
+header div .bell-circle {
+  fill: lightgreen;
+}
+header div .divider {
+  width: 1px;
+  height: 42px;
+  margin: 0 20px;
+  background-color: #5d61bf;
+}
+header div .member-img {
+  height: 33px;
+  width: 33px;
+  border-radius: 50%;
+}
+header div .member-name {
+  margin-left: 10px;
 }
 
 nav {
@@ -121,10 +153,8 @@ main {
   align-self: center;
 }
 .alert-message span {
-  float: right;
   align-self: center;
   justify-self: flex-end;
-  font-size: 16px;
   font-weight: 700;
 }
 
