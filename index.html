@@ -6,12 +6,9 @@
       content="width=device-width, initial-scale=1.0"
       charset="utf-8"
     />
-    <link rel="stylesheet" type="text/css" href="css/styles.css" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Prompt:400,700"
-      rel="stylesheet"
-    />
-
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Prompt:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cutive+Mono" rel="stylesheet">
     <title>YourApp | Dashboard</title>
   </head>
 
@@ -161,16 +158,43 @@
           </div>
         </div>
       </section>
-      <section class="main-item traffic">
-        <canvas id="myChart"></canvas>
+      <section class="main-item everything-else">
+        <section class=" traffic">
+          <div class="heading">
+            <h1>Traffic</h1>
+            <div class='chart-toggle'>
+              <span>Hourly</span>
+              <span>Daily</span>
+              <span class='active'>Weekly</span>
+              <span>Monthly</span>
+            </div>
+          </div>
+          <div class="chart">
+            <canvas id="chart-weekly"></canvas>
+          </div>
+        </section>
+        <section class="daily-traffic">
+            <div class="heading">
+              <h1>Daily Traffic</h1>
+            </div>
+            <div class="chart">
+                <canvas id="chart-daily"></canvas>
+            </div>
+        </section>
+        <section class="mobile-users">
+            <div class="heading">
+                <h1>Mobile Users</h1>
+              </div>
+              <div class="chart">
+                  <canvas id="chart-users"></canvas>
+              </div>
+        </section>
+        <section class="social-stats"></section>
+        <section class="new-members"></section>
+        <section class="recent-activity"></section>
+        <section class="message-user"></section>
+        <section class="settings"></section>
       </section>
-      <section class="main-item daily-traffic"></section>
-      <section class="main-item mobile-users"></section>
-      <section class="main-item social-stats"></section>
-      <section class="main-item new-members"></section>
-      <section class="main-item recent-activity"></section>
-      <section class="main-item message-user"></section>
-      <section class="main-item settings"></section>
     </main>
     <script src="js/chart.min.js"></script>
     <script src="js/app.js"></script>
