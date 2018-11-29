@@ -41,8 +41,25 @@ main {
   grid-area: main;
 }
 
+//main container
+.main-container {
+  display: grid;
+  background-color: #D2D2D2;
+  grid-template-columns: 1fr;
+  grid-template-rows: minmax(min-content, max-content) minmax(min-content, max-content);
+  grid-template-areas:
+    "tab-and-search "
+    "everything-else ";
+}
+.tab-and-search-container {
+  grid-area: tab-and-search;
+}
+.everything-else-container {
+  grid-area: everything-else;
+}
+
 //tab-and-search container
-.tab-and-search {
+.tab-and-search-container {
   display: grid;
   grid-template-columns: 155px auto;
   grid-template-rows: 65px minmax(min-content, max-content);
@@ -60,23 +77,19 @@ main {
   grid-area: alert;
 }
 
-//main container
-.main-container {
+//everything-else container
+.everything-else-container {
   display: grid;
   background-color: #D2D2D2;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: minmax(min-content, max-content) 350px 350px;
+  grid-template-rows: 350px 350px;
   grid-template-areas:
-    "tab-and-search tab-and-search"
     "traffic        traffic"
     "daily-traffic  mobile-users"
     "social-stats   social-stats"
     "new-members    recent-activity"
     "message-user   settings";
     grid-gap: 1px;
-}
-.tab-and-search {
-  grid-area: tab-and-search;
 }
 .traffic {
   grid-area: traffic;
@@ -119,7 +132,9 @@ h1 {
   text-transform: uppercase;
 }
 
-
+//=================================
+//  Header
+//=================================
 header {
   display: flex;
   justify-content: space-between;
@@ -166,6 +181,9 @@ header {
   }
 }
 
+//=================================
+//  Nav
+//=================================
 nav {
   background-color: #4d4c72;
 }
@@ -208,6 +226,7 @@ nav {
   }
 }
 
+
 main {
   background-color: #fff;
 }
@@ -220,14 +239,14 @@ main {
   justify-content: space-between;
   align-items: center;
   height: 25px;
-  margin: 0 25px;
+  margin: 25px 25px 0;
 }
 .chart {
   position: relative;
   //Move width to media query
   width: calc(100vw - (100vw - 100%)); //only Chrome likes
   max-width: calc(100vw - 90px); //only Firefox likes
-  height: 325px;
+  height: 300px;
 }
 .chart-toggle {
   // display: flex;
@@ -277,14 +296,6 @@ main {
 }
 
 //tab-and-search container
-.tab-and-search {
-  display: grid;
-  grid-template-columns: 155px auto;
-  grid-template-rows: 65px minmax(min-content, max-content);
-  grid-template-areas:
-    "tab   search"
-    "alert alert";
-}
 .tab {
   background-color: #fff;
   font-size: 20px;
@@ -319,4 +330,15 @@ main {
       cursor: pointer;
     }
   }
+}
+
+
+.chart-legend li span{
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  margin-right: 15px;
+}
+.chart-legend ul {
+  list-style-type: none;
 }
