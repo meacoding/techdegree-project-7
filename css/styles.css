@@ -35,7 +35,7 @@ main {
 
 .main-container {
   display: grid;
-  background-color: #D2D2D2;
+  background-color: #d2d2d2;
   grid-template-columns: 1fr;
   grid-template-rows: minmax(min-content, max-content) minmax(min-content, max-content);
   grid-template-areas: "tab-and-search " "everything-else ";
@@ -70,7 +70,7 @@ main {
 
 .everything-else-container {
   display: grid;
-  background-color: #D2D2D2;
+  background-color: #d2d2d2;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 350px 350px;
   grid-template-areas: "traffic        traffic" "daily-traffic  mobile-users" "social-stats   social-stats" "new-members    recent-activity" "message-user   settings";
@@ -183,7 +183,7 @@ nav {
 .nav-item .nav-active {
   height: 100%;
   width: 3px;
-  background-color: #85DB80;
+  background-color: #85db80;
   border-radius: 0 3px 3px 0;
 }
 .nav-item .nav-balance {
@@ -202,7 +202,7 @@ nav {
   opacity: 0;
 }
 .nav-item .nav-inactive {
-  fill: #A6A6B9;
+  fill: #a6a6b9;
 }
 
 main {
@@ -229,12 +229,12 @@ main {
 }
 
 .chart-toggle .active {
-  background-color: #81C98F;
+  background-color: #81c98f;
   color: #fff;
 }
 .chart-toggle span {
   font-weight: 700;
-  color: #8F8F8F;
+  color: #8f8f8f;
   border-radius: 15px;
   padding: 0 10px;
   height: 25px;
@@ -318,15 +318,37 @@ main {
   cursor: pointer;
 }
 
-.chart-legend li span {
-  display: inline-block;
+.legend-users {
+  display: block;
+  width: 150px;
+}
+.legend-users li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.legend-users li div:first-child {
   width: 26px;
   height: 26px;
   margin-right: 15px;
+  border-radius: 5px;
+}
+.legend-users ul {
+  list-style-type: none;
+  display: inline-block;
+  width: 100px;
+  padding-left: 25px;
 }
 
-.chart-legend ul {
-  list-style-type: none;
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 45px;
+}
+
+.doughnut {
+  width: 300px;
 }
 
 /*# sourceMappingURL=styles.css.map */
