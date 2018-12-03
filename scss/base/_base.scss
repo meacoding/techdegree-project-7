@@ -16,6 +16,14 @@ h1 {
   align-items: center;
   justify-content: center;
 }
+.member-img {
+  cursor: pointer;
+  height: 38px;
+  width: 38px;
+  border-radius: 50%;
+}
+
+
 .heading {
   display: flex;
   justify-content: space-between;
@@ -65,12 +73,11 @@ main {
 .mobile-users {
   background-color: #fff;
 }
-
 .social-stats {
-  background-color: white;
+  background-color: #fff;
 }
 .new-members {
-  background-color: tomato;
+  background-color: #fff;
 }
 .recent-activity {
   background-color: dodgerblue;
@@ -129,6 +136,7 @@ main {
   h2 {
     color: #7477bf;
     margin: 0;
+    font-size: 1.4em;
   }
   p {
     color: #666666;
@@ -142,8 +150,27 @@ main {
   height: 72px;
   width: 72px;
 }
-.social-circle {
+
+//new-members
+
+.new-member {
+  height: 70px;
+  margin: 0 35px 0 25px;
+  justify-content: space-between;
 }
+.member-email {
+  color: #7A7DC1;
+}
+.member-text {
+  margin-left: 10px;
+  .member-name {
+    font-size: 14px;
+  }
+}
+.new-member:nth-child(-n+4) {
+  border-bottom: 1px solid #E9E9E9;  
+}
+
 
 //maybe move to footer file
 footer {

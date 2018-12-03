@@ -16,6 +16,13 @@ h1 {
   justify-content: center;
 }
 
+.member-img {
+  cursor: pointer;
+  height: 38px;
+  width: 38px;
+  border-radius: 50%;
+}
+
 .heading {
   display: flex;
   justify-content: space-between;
@@ -67,11 +74,11 @@ main {
 }
 
 .social-stats {
-  background-color: white;
+  background-color: #fff;
 }
 
 .new-members {
-  background-color: tomato;
+  background-color: #fff;
 }
 
 .recent-activity {
@@ -135,6 +142,7 @@ main {
 .social-ind h2 {
   color: #7477bf;
   margin: 0;
+  font-size: 1.4em;
 }
 .social-ind p {
   color: #666666;
@@ -147,6 +155,27 @@ main {
 .social-icon {
   height: 72px;
   width: 72px;
+}
+
+.new-member {
+  height: 70px;
+  margin: 0 35px 0 25px;
+  justify-content: space-between;
+}
+
+.member-email {
+  color: #7A7DC1;
+}
+
+.member-text {
+  margin-left: 10px;
+}
+.member-text .member-name {
+  font-size: 14px;
+}
+
+.new-member:nth-child(-n+4) {
+  border-bottom: 1px solid #E9E9E9;
 }
 
 footer {
@@ -289,10 +318,8 @@ header div .divider {
   background-color: #5d61bf;
 }
 header div .member-img {
-  cursor: pointer;
   height: 33px;
   width: 33px;
-  border-radius: 50%;
 }
 header div .member-name {
   cursor: pointer;
