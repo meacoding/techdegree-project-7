@@ -1,0 +1,159 @@
+//=================================
+//  Grids
+//=================================
+
+//outermost container
+.body-container {
+  height: 100vh;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 90px auto;
+  grid-template-rows: 70px auto 100px;
+  grid-template-areas:
+    "header header"
+    "nav main"
+    "footer footer";
+}
+header {
+  grid-area: header;
+}
+nav {
+  grid-area: nav;
+}
+main {
+  grid-area: main;
+}
+footer {
+  grid-area: footer;
+}
+
+//main container
+.main-container {
+  display: grid;
+  background-color: #d2d2d2;
+  grid-template-columns: 1fr;
+  grid-template-rows: minmax(min-content, max-content) minmax(
+      min-content,
+      max-content
+    );
+  grid-template-areas:
+    "tab-and-search "
+    "everything-else ";
+}
+.tab-and-search-container {
+  grid-area: tab-and-search;
+}
+.everything-else-container {
+  grid-area: everything-else;
+}
+// tab-and-search container
+.tab-and-search-container {
+  display: grid;
+  grid-template-columns: 155px auto;
+  grid-template-rows: 65px minmax(min-content, max-content);
+  grid-template-areas:
+    "tab   search"
+    "alert alert";
+}
+.tab {
+  grid-area: tab;
+}
+.search {
+  grid-area: search;
+}
+.alert {
+  grid-area: alert;
+}
+// everything-else container
+.everything-else-container {
+  display: grid;
+  background-color: #d2d2d2;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 350px 350px 230px 350px 350px;
+  grid-template-areas:
+    "traffic        traffic"
+    "daily-traffic  mobile-users"
+    "social-stats   social-stats"
+    "new-members    recent-activity"
+    "message-user   settings";
+  grid-gap: 1px;
+}
+.traffic {
+  grid-area: traffic;
+}
+.daily-traffic {
+  grid-area: daily-traffic;
+}
+.mobile-users {
+  grid-area: mobile-users;
+}
+.social-stats {
+  grid-area: social-stats;
+}
+.new-members {
+  grid-area: new-members;
+}
+.recent-activity {
+  grid-area: recent-activity;
+}
+.message-user {
+  grid-area: message-user;
+}
+.settings {
+  grid-area: settings;
+}
+// .container
+// .grid__row
+// .grid__col--2
+// .grid__col--3
+// .grid__col--4
+// .grid__col--5
+// .grid__col--6
+// .grid__col--7
+// .grid__col--8
+// .grid__col--9
+// .grid__col--10
+// .grid__col--11
+// .grid__col--12
+// .centered
+// .theme__colors
+// .grid__row {
+// margin-bottom: 60px;
+// box-sizing: border-box;
+// @include mq($break-m) {
+// @include flex($direct: row);
+// align-items: center;
+// }
+// }
+// @each $grid-width in $grid-widths {
+// #{$grid}#{$grid-width} {
+// flex: #{$grid-width};
+// @extend %button-mixin-grids;
+// @include mq($break-m) {
+// @include flex;
+// margin: auto 7px;
+// }
+// }
+// }
+// .theme__colors {
+// @include button($themes, $grid);
+// @include flex;
+// padding-left: 10px;
+// padding-right: 10px;
+// font-weight: bold;
+// @include mq($break-m) {
+// justify-content: center;
+// }
+// }
+// .centered {
+// @include mq($break-m) {
+// @include margin-hor(auto);
+// max-width: calc(100% * 7 / 12);
+// justify-content: center;
+// }
+// }
+// .card {
+// @include mq($break-m) {
+// margin-right: 5%;
+// }
+// }

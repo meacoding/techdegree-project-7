@@ -1,6 +1,46 @@
 //=================================
-//  Navigation
+//  Section: tab-and-search
 //=================================
+
+.tab-and-search {
+  background-color: #fff;
+}
+// tab-and-search container
+.tab {
+  background-color: #fff;
+  font-size: 20px;
+  text-align: center;
+}
+.search {
+  background-color: #fbfbfb;
+  border-left: 1px solid #dfdfdf;
+  border-bottom: 1px solid #dfdfdf;
+}
+.alert {
+  justify-content: center;
+  background-color: #fff;
+  padding: 25px 25px;
+}
+.alert-message {
+  display: flex;
+  justify-content: space-between;
+  background-color: #7377bf;
+  height: 40px;
+  color: white;
+  border-radius: 3px;
+  padding: 0 15px;
+  p {
+    align-self: center;
+  }
+  span {
+    align-self: center;
+    justify-self: flex-end;
+    font-weight: 700;
+    &#hide:hover {
+      cursor: pointer;
+    }
+  }
+}
 
 // .nav__item
 

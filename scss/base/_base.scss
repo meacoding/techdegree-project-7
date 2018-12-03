@@ -1,121 +1,3 @@
-//=================================
-//  Keyframes
-//=================================
-
-@keyframes ring {
-  0% {
-    transform: rotate(0deg);
-  }
-  33% {
-    transform: rotate(-10deg);
-  }
-  66% {
-    transform: rotate(10deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
-}
-
-//=================================
-//  Grids
-//=================================
-//outermost container
-.body-container {
-  height: 100vh;
-  margin: 0;
-  display: grid;
-  grid-template-columns: 90px auto;
-  grid-template-rows: 70px auto;
-  grid-template-areas:
-    "header header"
-    "nav main";
-}
-header {
-  grid-area: header;
-}
-nav {
-  grid-area: nav;
-}
-main {
-  grid-area: main;
-}
-
-//main container
-.main-container {
-  display: grid;
-  background-color: #d2d2d2;
-  grid-template-columns: 1fr;
-  grid-template-rows: minmax(min-content, max-content) minmax(
-      min-content,
-      max-content
-    );
-  grid-template-areas:
-    "tab-and-search "
-    "everything-else ";
-}
-.tab-and-search-container {
-  grid-area: tab-and-search;
-}
-.everything-else-container {
-  grid-area: everything-else;
-}
-// tab-and-search container
-.tab-and-search-container {
-  display: grid;
-  grid-template-columns: 155px auto;
-  grid-template-rows: 65px minmax(min-content, max-content);
-  grid-template-areas:
-    "tab   search"
-    "alert alert";
-}
-.tab {
-  grid-area: tab;
-}
-.search {
-  grid-area: search;
-}
-.alert {
-  grid-area: alert;
-}
-// everything-else container
-.everything-else-container {
-  display: grid;
-  background-color: #d2d2d2;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 350px 350px;
-  grid-template-areas:
-    "traffic        traffic"
-    "daily-traffic  mobile-users"
-    "social-stats   social-stats"
-    "new-members    recent-activity"
-    "message-user   settings";
-  grid-gap: 1px;
-}
-.traffic {
-  grid-area: traffic;
-}
-.daily-traffic {
-  grid-area: daily-traffic;
-}
-.mobile-users {
-  grid-area: mobile-users;
-}
-.social-stats {
-  grid-area: social-stats;
-}
-.new-members {
-  grid-area: new-members;
-}
-.recent-activity {
-  grid-area: recent-activity;
-}
-.message-user {
-  grid-area: message-user;
-}
-.settings {
-  grid-area: settings;
-}
 // =================================
 // Base
 // =================================
@@ -129,102 +11,10 @@ h1 {
   font-size: 14px;
   text-transform: uppercase;
 }
-// =================================
-// Header
-// =================================
-header {
+.flex {
   display: flex;
-  justify-content: space-between;
-  padding: 0 20px;
-  background-color: #7477bf;
-  color: #fff;
-  p {
-    align-self: center;
-    font-size: 20px;
-  }
-  div {
-    display: flex;
-    align-items: center;
-    .bell {
-      cursor: pointer;
-      height: 25px;
-      &:hover {
-        animation: ring 0.3s forwards;
-      }
-    }
-    .bell-itself {
-      transform-origin: 22px 0%;
-    }
-    .bell-circle {
-      fill: lightgreen;
-    }
-    .divider {
-      width: 1px;
-      height: 42px;
-      margin: 0 20px;
-      background-color: #5d61bf;
-    }
-    .member-img {
-      cursor: pointer;
-      height: 33px;
-      width: 33px;
-      border-radius: 50%;
-    }
-    .member-name {
-      cursor: pointer;
-      margin-left: 10px;
-    }
-  }
-}
-// =================================
-// Nav
-// =================================
-nav {
-  background-color: #4d4c72;
-}
-.nav-item {
-  &:hover {
-    // background-color: red;
-    cursor: pointer;
-  }
-  display: flex;
-  justify-content: space-between;
   align-items: center;
-  height: 60px;
-  margin: 16px 0;
-  .nav-active {
-    height: 100%;
-    width: 3px;
-    background-color: #85db80;
-    border-radius: 0 3px 3px 0;
-  }
-  .nav-balance {
-    width: 3px;
-    height: 100%;
-  }
-  .nav-icon {
-    height: 32px;
-    &:hover,
-    &:active {
-      height: 35px;
-    }
-  }
-  // Hard-coded in place of dynamic JS
-  #nav-members,
-  #nav-visits,
-  #nav-settings {
-    opacity: 0;
-  }
-  // Hard-coded in place of dynamic JS
-  .nav-inactive {
-    fill: #a6a6b9;
-  }
-}
-main {
-  background-color: #fff;
-}
-.tab-and-search {
-  background-color: #fff;
+  justify-content: center;
 }
 .heading {
   display: flex;
@@ -233,11 +23,15 @@ main {
   height: 25px;
   margin: 25px 25px 0;
 }
+main {
+  background-color: #fff;
+}
+
 .chart {
   position: relative;
   // Move width to media query
   width: calc(100vw - (100vw - 100%)); // only Chrome likes
-  max-width: calc(100vw - 90px); // only Firefox likes
+  max-width: calc(100vw - 90px); // only Firefox likes - in width
   height: 300px;
 }
 .chart-toggle {
@@ -271,6 +65,7 @@ main {
 .mobile-users {
   background-color: #fff;
 }
+
 .social-stats {
   background-color: white;
 }
@@ -285,42 +80,6 @@ main {
 }
 .settings {
   background-color: chartreuse;
-}
-// tab-and-search container
-.tab {
-  background-color: #fff;
-  font-size: 20px;
-  text-align: center;
-}
-.search {
-  background-color: #fbfbfb;
-  border-left: 1px solid #dfdfdf;
-  border-bottom: 1px solid #dfdfdf;
-}
-.alert {
-  justify-content: center;
-  background-color: #fff;
-  padding: 25px 25px;
-}
-.alert-message {
-  display: flex;
-  justify-content: space-between;
-  background-color: #7377bf;
-  height: 40px;
-  color: white;
-  border-radius: 3px;
-  padding: 0 15px;
-  p {
-    align-self: center;
-  }
-  span {
-    align-self: center;
-    justify-self: flex-end;
-    font-weight: 700;
-    &#hide:hover {
-      cursor: pointer;
-    }
-  }
 }
 // Mobile Users
 .legend-users {
@@ -344,12 +103,49 @@ main {
     padding-left: 25px;
   }
 }
-.flex {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+.doughnut-margin {
   margin-right: 45px;
 }
 .doughnut {
   width: 300px;
+}
+
+//maybe move to social-stats file
+.social-wrap {
+  margin-top: 15px;
+  justify-content: space-between;
+  padding: 0 25px;
+}
+.social-ind {
+  height: 115px;
+  width: 325px;
+  background-color: #fbfbfb;
+  border: 1px solid #d1d1d1;
+  border-radius: 5px;
+  div {
+    margin: 0 50px 0 20px;
+  }
+  h2 {
+    color: #7477bf;
+    margin: 0;
+  }
+  p {
+    color: #666666;
+    font-size: 45px;
+    margin: 0;
+    font-weight: 300;
+    line-height: 1;
+  }
+}
+.social-icon {
+  height: 72px;
+  width: 72px;
+}
+.social-circle {
+}
+
+//maybe move to footer file
+footer {
+  background-color: black;
 }

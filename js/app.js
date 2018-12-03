@@ -56,9 +56,8 @@ document.addEventListener("DOMContentLoaded", e => {
   memberName(0, ".member-name.member-0");
 });
 
-const alert = document.querySelectorAll('.alert')[0];
-const hide = document.getElementById('hide');
-hide.addEventListener('click', (e) => {
-  alert.style.display = 'none';
-})
-
+const alert = document.querySelectorAll(".alert")[0];
+const hide = document.getElementById("hide");
+hide.addEventListener("click", e => {
+  alert.style.display = "none";
+});

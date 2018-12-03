@@ -1,0 +1,77 @@
+//=================================
+//  Header
+//=================================
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  background-color: #7477bf;
+  color: #fff;
+  p {
+    align-self: center;
+    font-size: 20px;
+  }
+  div {
+    display: flex;
+    align-items: center;
+    .bell {
+      cursor: pointer;
+      height: 25px;
+      &:hover {
+        animation: ring 0.3s forwards;
+      }
+    }
+    .bell-itself {
+      transform-origin: 22px 0%;
+    }
+    .bell-circle {
+      fill: lightgreen;
+    }
+    .divider {
+      width: 1px;
+      height: 42px;
+      margin: 0 20px;
+      background-color: #5d61bf;
+    }
+    .member-img {
+      cursor: pointer;
+      height: 33px;
+      width: 33px;
+      border-radius: 50%;
+    }
+    .member-name {
+      cursor: pointer;
+      margin-left: 10px;
+    }
+  }
+}
+
+// .form
+// .form__label--hidden
+// .form__input
+
+// .form {
+//   width: 100%;
+
+//   @include mq($break-m) {
+//     & .theme__colors {
+//       @include margin-hor(0);
+//     }
+//   }
+
+//   &__label--hidden {
+//     display: none;
+//   }
+
+//   &__input {
+//     border: none;
+//     border-bottom: 6px solid $color-form-input;
+//     outline: none;
+//     width: 90%;
+//     height: 40px;
+//     padding-left: 10px;
+//     margin: 5px 5px 15px;
+//     font-weight: bold;
+//   }
+// }
