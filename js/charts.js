@@ -195,7 +195,7 @@ var chart3 = new Chart(chartUsers, {
       let text = [];
       text.push("<ul>");
       for (let i = 0; i < chart.data.datasets[0].backgroundColor.length; i++) {
-        console.log(chart.data.datasets[0]); // see what's inside the obj.
+        // console.log(chart.data.datasets[0]); // see what's inside the obj.
         text.push("<li>");
         text.push(
           '<div style="background-color:' +
@@ -212,6 +212,6 @@ var chart3 = new Chart(chartUsers, {
     }
   }
 });
-console.log(chart3.data.datasets.data);
+// console.log(chart3.data.datasets.data);
 
 document.getElementById("js-legend").innerHTML = chart3.generateLegend();

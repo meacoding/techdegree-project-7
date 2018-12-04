@@ -82,7 +82,7 @@ main {
 }
 
 .recent-activity {
-  background-color: dodgerblue;
+  background-color: #fff;
 }
 
 .message-user {
@@ -176,6 +176,19 @@ main {
 
 .new-member:nth-child(-n+4) {
   border-bottom: 1px solid #E9E9E9;
+}
+
+.member-text a {
+  text-decoration: none;
+  color: #666666;
+  font-weight: 600;
+}
+
+.member-text .member-activity-0,
+.member-text .member-activity-1,
+.member-text .member-activity-2,
+.member-text .member-activity-3 {
+  font-size: 14px;
 }
 
 footer {
