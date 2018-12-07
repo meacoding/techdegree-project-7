@@ -12,22 +12,14 @@ document.addEventListener("DOMContentLoaded", e => {
     },
     {
       memberID: 1,
-      firstName: "Victoria",
-      lastName: "Chambers",
-      img: "images/member-1.jpg",
-      email: "victoria.chambers80@example.com",
+      firstName: "Dan",
+      lastName: "Oliver",
+      img: "images/member-4.jpg",
+      email: "dan.oliver82@example.com",
       signupDate: "10/10/18"
     },
     {
       memberID: 2,
-      firstName: "Dale",
-      lastName: "Byrd",
-      img: "images/member-2.jpg",
-      email: "dale.byrd52@example.com",
-      signupDate: "10/10/18"
-    },
-    {
-      memberID: 3,
       firstName: "Dawn",
       lastName: "Wood",
       img: "images/member-3.jpg",
@@ -35,11 +27,19 @@ document.addEventListener("DOMContentLoaded", e => {
       signupDate: "10/10/18"
     },
     {
+      memberID: 3,
+      firstName: "Dale",
+      lastName: "Byrd",
+      img: "images/member-2.jpg",
+      email: "dale.byrd52@example.com",
+      signupDate: "10/10/18"
+    },
+    {
       memberID: 4,
-      firstName: "Dan",
-      lastName: "Oliver",
-      img: "images/member-4.jpg",
-      email: "dan.oliver82@example.com",
+      firstName: "Victoria",
+      lastName: "Chambers",
+      img: "images/member-1.jpg",
+      email: "victoria.chambers80@example.com",
       signupDate: "10/10/18"
     }
   ];
@@ -54,47 +54,65 @@ document.addEventListener("DOMContentLoaded", e => {
     },
     {
       entry: 2,
-      memberID: 4,
+      memberID: 1,
       action: "posted",
-      thing: "<a href='#'>YourApp\'s SEO Tips</a>",
+      thing: "<a href='#'>YourApp's SEO Tips</a>",
       age: "1 day ago"
     },
     {
       entry: 3,
-      memberID: 3,
+      memberID: 2,
       action: "commented on",
-      thing: "<a href='#'>Facebook\'s Changes for 2016</a>",
+      thing: "<a href='#'>Facebook's Changes for 2016</a>",
       age: "5 hours ago"
     },
     {
       entry: 4,
-      memberID: 2,
+      memberID: 3,
       action: "liked the post",
-      thing: "<a href='#'>Facebook\'s Changes for 2016</a>",
+      thing: "<a href='#'>Facebook's Changes for 2016</a>",
       age: "1 day ago"
     },
     {
       entry: 5,
-      memberID: 1,
+      memberID: 4,
       action: "commented on",
-      thing: "<a href='#'>YourApp\'s SEO Tips</a>",
+      thing: "<a href='#'>YourApp's SEO Tips</a>",
       age: "4 hours ago"
     }
   ];
 
+  //profile image
+  const profileImg = document.querySelectorAll(".profile-img")[0];
+  profileImg.style.background = `black url('${
+    members[0].img
+  }') center center / cover no-repeat`;
+
+  //profile name
+  const profileName = document.querySelectorAll(".profile-name")[0];
+  profileName.innerHTML = `${members[0].firstName} ${members[0].lastName}`;
+
+  //activity: last four new members
+  const lastFourNewMembers = members.slice(members.length - 4);
+  lastFourNewMembers.reverse();
+
+  //activity: last four member activities
   const lastFourOfActivity = activity.slice(activity.length - 4);
   lastFourOfActivity.reverse();
-  console.log(lastFourOfActivity);
 
   //The member activity will pull the last 4 entries and reverse order.
-  const memberActivity = (i) => {
+  const memberActivity = i => {
     const memberActivity = document.querySelectorAll(`.member-activity-${i}`);
-    const memberLookup = members.find( person => person.memberID === activity[i].memberID);
+    const memberLookup = members.find(
+      person => person.memberID === lastFourOfActivity[i].memberID
+    );
     memberActivity[0].style.background = `yellow url('${
       memberLookup.img
     }') center center / cover no-repeat`;
-    memberActivity[1].innerHTML = `${memberLookup.firstName} ${memberLookup.lastName} ${activity[i].action} ${activity[i].thing}`;
-    memberActivity[2].innerHTML = `${activity[i].age}`;
+    memberActivity[1].innerHTML = `${memberLookup.firstName} ${
+      memberLookup.lastName
+    } ${lastFourOfActivity[i].action} ${lastFourOfActivity[i].thing}`;
+    memberActivity[2].innerHTML = `${lastFourOfActivity[i].age}`;
   };
   memberActivity(0);
   memberActivity(1);
@@ -102,12 +120,12 @@ document.addEventListener("DOMContentLoaded", e => {
   memberActivity(3);
 
   //Excessive for demonstrating a mockup but a real project wouldn't be hard coded.
-  const memberImg = (i) => {
+  const memberImg = i => {
     const className = `.member-img.member-${i}`;
     const member = document.querySelectorAll(className);
     for (let j = 0; j < member.length; j++) {
-      member[j].style.background = `yellow url('${
-        members[i].img
+      member[j].style.background = `black url('${
+        lastFourNewMembers[i].img
       }') center center / cover no-repeat`;
     }
   };
@@ -115,13 +133,14 @@ document.addEventListener("DOMContentLoaded", e => {
   memberImg(1);
   memberImg(2);
   memberImg(3);
-  memberImg(4);
 
-  const memberName = (i) => {
+  const memberName = i => {
     const className = `.member-name.member-${i}`;
     const member = document.querySelectorAll(className);
     for (let j = 0; j < member.length; j++) {
-      const name = `${members[i].firstName} ${members[i].lastName}`;
+      const name = `${lastFourNewMembers[i].firstName} ${
+        lastFourNewMembers[i].lastName
+      }`;
       member[j].textContent = name;
     }
   };
@@ -129,37 +148,58 @@ document.addEventListener("DOMContentLoaded", e => {
   memberName(1);
   memberName(2);
   memberName(3);
-  memberName(4);
 
-  const memberEmail = (i) => {
+  const memberEmail = i => {
     const className = `.member-email.member-${i}`;
     const member = document.querySelectorAll(className)[0];
-    const email = `${members[i].email}`;
+    const email = `${lastFourNewMembers[i].email}`;
     member.textContent = email;
   };
+  memberEmail(0);
   memberEmail(1);
   memberEmail(2);
   memberEmail(3);
-  memberEmail(4);
 
-  const memberDate = (i) => {
+  const memberDate = i => {
     const className = `.member-date.member-${i}`;
     const member = document.querySelectorAll(className)[0];
     const date = `${members[i].signupDate}`;
     member.textContent = date;
   };
+  memberDate(0);
   memberDate(1);
   memberDate(2);
   memberDate(3);
-  memberDate(4);
 
   //Hide alert message
   const alert = document.querySelectorAll(".alert")[0];
   const hide = document.getElementById("hide");
   hide.addEventListener("click", e => {
-  alert.style.display = "none";
+    alert.style.display = "none";
+  });
+
+  function searchNames() {
+    //Get value of .search input
+    let $searchInput = $("#searchName")
+      .val()
+      .toUpperCase();
+
+    //Locate all images tied to .search-box
+    let $names = $(members${i}.firstName);
+    console.log($names);
+
+    //Loop through image captions in Lighthouse attr.
+    for (let i = 0; i < $names.length; i++) {
+      let $name = $($names[i]).attr("data-title");
+
+      //If matched, filter out images
+      if ($name.toUpperCase().indexOf($searchInput) > -1) {
+        $($names[i]).css({ display: "" });
+      } else {
+        $($names[i]).css({ display: "none" });
+      }
+    }
+  }
+  //Event listener
+  $("#searchName").keyup(searchNames);
 });
-});
-
-
-

@@ -86,7 +86,7 @@ main {
 }
 
 .message-user {
-  background-color: skyblue;
+  background-color: #fff;
 }
 
 .settings {
@@ -191,8 +191,54 @@ main {
   font-size: 14px;
 }
 
-.arrow svg {
-  height: 20px;
+.form-message {
+  padding: 0 35px 0 25px;
+}
+
+label[for=searchName],
+label[for=messageForUser] {
+  display: none;
+}
+
+input,
+textarea,
+button {
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  margin-top: 18px;
+  border-radius: 5px;
+}
+
+#searchName {
+  height: 40px;
+  border: 1px solid #d1d1d1;
+  padding: 15px 20px;
+  background-color: #fbfbfb;
+}
+#searchName::placeholder {
+  color: #bcbcbc;
+}
+
+#messageForUser {
+  height: 125px;
+  resize: none;
+  border: 1px solid #d1d1d1;
+  padding: 15px 20px;
+  background-color: #fbfbfb;
+}
+#messageForUser::placeholder {
+  color: #bcbcbc;
+}
+
+#sendMessage {
+  height: 50px;
+  background-color: #7377bf;
+  color: #fff;
+  border: none;
+  padding: 0;
 }
 
 footer {
