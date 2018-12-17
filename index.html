@@ -517,14 +517,32 @@
         </section>
         <section class="message-user">
           <div class="heading"><h1>Message User</h1></div>
-          <form class="form-message" action="index.html" method="post">
+          <form
+            class="form-message"
+            autocomplete="off"
+            action="index.html"
+            method="post"
+          >
             <label for="searchName">Search for User:</label>
-            <input type="text" id="searchName" name="search_name" aria-label="Search"  placeholder="Search for User"/>
+            <input
+              type="text"
+              id="searchName"
+              name="search_name"
+              aria-label="Search"
+              placeholder="Search for User"
+            />
 
             <label for="messageForUser">Message for User:</label>
-            <textarea id="messageForUser" name="message_for_user" aria-label="Message" placeholder="Message for User"></textarea>
+            <textarea
+              id="messageForUser"
+              name="message_for_user"
+              aria-label="Message"
+              placeholder="Message for User"
+            ></textarea>
 
-            <button type="submit" id="sendMessage" aria-label="Send">SEND</button>
+            <button type="submit" id="sendMessage" aria-label="Send">
+              SEND
+            </button>
           </form>
         </section>
         <section class="settings"></section>
