@@ -519,18 +519,20 @@
           <div class="heading"><h1>Message User</h1></div>
           <form
             class="form-message"
-            autocomplete="off"
             action="index.html"
             method="post"
           >
-            <label for="searchName">Search for User:</label>
+            <label for="searchName" >Search for User:</label>
             <input
               type="text"
               id="searchName"
               name="search_name"
               aria-label="Search"
               placeholder="Search for User"
+              list="datalist"
             />
+
+            <datalist id="datalist"></datalist>
 
             <label for="messageForUser">Message for User:</label>
             <textarea
@@ -545,12 +547,47 @@
             </button>
           </form>
         </section>
-        <section class="settings"></section>
+        <section class="settings">
+            <div class="heading"><h1>Settings</h1></div>
+            <form
+              class="form-settings"
+              action="index.html"
+              method="post"
+            >
+            <div class="setting-switch">
+                <p>Send Email Notifications</p>
+              <div class="onoffswitch">
+                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="emailNotifications" checked>
+                <label class="onoffswitch-label" for="emailNotifications">
+                  <span class="onoffswitch-inner"></span>
+                  <span class="onoffswitch-switch"></span>
+                </label>
+              </div>
+            </div>
+
+            <div class="setting-switch">
+              <p>Set Profile Public</p>
+              <div class="onoffswitch">
+                  <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="setProfileToPublic" checked>
+                  <label class="onoffswitch-label" for="setProfileToPublic">
+                    <span class="onoffswitch-inner"></span>
+                    <span class="onoffswitch-switch"></span>
+                  </label>
+                </div>
+              </div>
+
+              <select name="timezones" id="timezones">
+                  <option value="" >Select your option</option>
+              </select>
+
+          </form>
+        </section>
       </section>
     </main>
-    <footer class="body-item"></footer>
+    <!-- <footer class="body-item"></footer> -->
     <script src="js/jquery-3.2.0.min.js"></script>
     <script src="js/chart.min.js"></script>
+    <script src="js/timezones.js"></script>
     <script src="js/app.js"></script>
     <script src="js/charts.js"></script>
   </body>
