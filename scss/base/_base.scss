@@ -289,3 +289,57 @@ footer {
   width: 195px;
   font-size: 14px;
 }
+
+select {
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  margin-top: 40px;
+  padding: 11px 20px;
+  border: 1px solid #d1d1d1;
+  border-radius: 5px;
+  background-color: #fbfbfb;
+
+  -webkit-appearance: none;  /*Removes default chrome and safari style*/
+      -moz-appearance: none; /* Removes Default Firefox style*/
+      background: url('../../images/angle-down.svg') no-repeat;  /*Adds background-image*/
+      background-position: 98%;  /*Position of the background-image*/
+      background-size: 11px;
+      text-indent: 0.01px; /* Removes default arrow from firefox*/
+      text-overflow: "";  /*Removes default arrow from firefox*/
+
+  &:invalid {
+    color: #bcbcbc;
+  }
+  &:valid {
+    color: #666666;
+  }
+  option {
+    color: #666666;
+  }
+  //"placeholder" select option not visible in Firefox
+}
+
+.buttonContainer {
+  justify-content: space-between;
+}
+
+#saveSettings,
+#cancelSettings {
+  height: 50px;
+  color: #fff;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+#saveSettings {
+  margin-right: 15px;
+  background-color: #7377bf;
+} //move to media query
+#cancelSettings {
+  margin-left: 15px;
+  background-color: #B2B2B2;
+} //move to media query

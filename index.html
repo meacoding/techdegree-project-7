@@ -576,9 +576,19 @@
                 </div>
               </div>
 
-              <select name="timezones" id="timezones">
-                  <option value="" >Select your option</option>
+              <select name="timezones" id="timezones" required>
+                  <option value="" disabled selected hidden>Select your option</option>
               </select>
+
+              <div class="flex buttonContainer">
+                <button type="submit" id="saveSettings" aria-label="Save">
+                  SAVE
+                </button>
+
+                <button type="submit" id="cancelSettings" aria-label="Cancel">
+                  CANCEL
+                </button>
+              </div>
 
           </form>
         </section>

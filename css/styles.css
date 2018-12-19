@@ -322,13 +322,71 @@ footer {
   font-size: 14px;
 }
 
+select {
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  margin-top: 40px;
+  padding: 11px 20px;
+  border: 1px solid #d1d1d1;
+  border-radius: 5px;
+  background-color: #fbfbfb;
+  -webkit-appearance: none;
+  /*Removes default chrome and safari style*/
+  -moz-appearance: none;
+  /* Removes Default Firefox style*/
+  background: url("../../images/angle-down.svg") no-repeat;
+  /*Adds background-image*/
+  background-position: 98%;
+  /*Position of the background-image*/
+  background-size: 11px;
+  text-indent: 0.01px;
+  /* Removes default arrow from firefox*/
+  text-overflow: "";
+  /*Removes default arrow from firefox*/
+}
+select:invalid {
+  color: #bcbcbc;
+}
+select:valid {
+  color: #666666;
+}
+select option {
+  color: #666666;
+}
+
+.buttonContainer {
+  justify-content: space-between;
+}
+
+#saveSettings,
+#cancelSettings {
+  height: 50px;
+  color: #fff;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+#saveSettings {
+  margin-right: 15px;
+  background-color: #7377bf;
+}
+
+#cancelSettings {
+  margin-left: 15px;
+  background-color: #B2B2B2;
+}
+
 .body-container {
   height: 100vh;
   margin: 0;
   display: grid;
   grid-template-columns: 90px auto;
   grid-template-rows: 70px auto 100px;
-  grid-template-areas: "header header" "nav main" "footer footer";
+  grid-template-areas: "header header" "nav main";
 }
 
 header {
@@ -341,10 +399,6 @@ nav {
 
 main {
   grid-area: main;
-}
-
-footer {
-  grid-area: footer;
 }
 
 .main-container {

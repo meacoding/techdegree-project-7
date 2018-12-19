@@ -11,8 +11,8 @@
   grid-template-rows: 70px auto 100px;
   grid-template-areas:
     "header header"
-    "nav main"
-    "footer footer";
+    "nav main";
+    // "footer footer";
 }
 header {
   grid-area: header;
@@ -23,9 +23,9 @@ nav {
 main {
   grid-area: main;
 }
-footer {
-  grid-area: footer;
-}
+// footer {
+//   grid-area: footer;
+// }
 
 //main container
 .main-container {
