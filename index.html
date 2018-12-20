@@ -521,6 +521,7 @@
             class="form-message"
             action="index.html"
             method="post"
+            autocomplete="off"
           >
             <label for="searchName" >Search for User:</label>
             <input
@@ -551,13 +552,15 @@
             <div class="heading"><h1>Settings</h1></div>
             <form
               class="form-settings"
+              id="form-settings"
               action="index.html"
-              method="post"
+              method="get"
+              autocomplete="off"
             >
             <div class="setting-switch">
                 <p>Send Email Notifications</p>
               <div class="onoffswitch">
-                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="emailNotifications" checked>
+                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="emailNotifications" value="on" checked="checked">
                 <label class="onoffswitch-label" for="emailNotifications">
                   <span class="onoffswitch-inner"></span>
                   <span class="onoffswitch-switch"></span>
@@ -568,7 +571,7 @@
             <div class="setting-switch">
               <p>Set Profile Public</p>
               <div class="onoffswitch">
-                  <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="setProfileToPublic" checked>
+                  <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="setProfileToPublic" value="on" checked="checked">
                   <label class="onoffswitch-label" for="setProfileToPublic">
                     <span class="onoffswitch-inner"></span>
                     <span class="onoffswitch-switch"></span>
@@ -579,18 +582,17 @@
               <select name="timezones" id="timezones" required>
                   <option value="" disabled selected hidden>Select your option</option>
               </select>
-
               <div class="flex buttonContainer">
-                <button type="submit" id="saveSettings" aria-label="Save">
+                <button type="submit" form="form-settings" id="saveSettings" aria-label="Save">
                   SAVE
                 </button>
-
-                <button type="submit" id="cancelSettings" aria-label="Cancel">
+    
+                <button type="button" form="form-settings" id="cancelSettings" aria-label="Cancel">
                   CANCEL
                 </button>
               </div>
-
           </form>
+
         </section>
       </section>
     </main>
@@ -598,7 +600,8 @@
     <script src="js/jquery-3.2.0.min.js"></script>
     <script src="js/chart.min.js"></script>
     <script src="js/timezones.js"></script>
-    <script src="js/app.js"></script>
+    
     <script src="js/charts.js"></script>
+    <script src="js/app.js"></script>
   </body>
 </html>

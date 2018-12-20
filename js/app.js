@@ -198,4 +198,81 @@ document.addEventListener("DOMContentLoaded", e => {
     option.value = $names[i]; 
     datalist.appendChild(option);
   }
+
+  const form = document.getElementById('form-settings');
+  const switchEmail = document.getElementById('emailNotifications');
+  const switchProfile = document.getElementById('setProfileToPublic');
+  const select = document.getElementById('timezones');
+  const save = document.getElementById('saveSettings');
+  const cancel = document.getElementById('cancelSettings');
+
+  $(switchEmail).click(function() {
+    if ($(this).is(':checked') === true ) {
+      $(this).attr("checked", true).val("on");
+      console.log($(this).prop("checked"), "switchEmail checked true");
+
+    } else if ($(this).is(':checked') === false){
+      $(this).attr("checked", false).val("off");
+      console.log($(this).prop("checked"), "switchEmail checked false");
+    }
+  });
+
+  $(switchProfile).click(function() {
+    if ($(this).is(':checked') === true ) {
+      $(this).attr("checked", true).val("on");
+      console.log($(this).prop("checked"), "switchProfile checked true");
+
+    } else if ($(this).is(':checked') === false){
+      $(this).attr("checked", false).val("off");
+      console.log($(this).prop("checked"), "switchProfile checked false");
+    }
+  });
+
+
+  if (localStorage.getItem('switchEmailLSValue')){
+    let storedValue = localStorage.getItem('switchEmailLSValue');
+    console.log("Stored value of switchEmail :", storedValue);
+    if (storedValue === "on") {
+      $(switchEmail).attr("checked", true).val("on");
+    } else if (storedValue === "off") {
+      $(switchEmail).attr("checked", false).val("off");
+    }
+  }
+
+  if (localStorage.getItem('switchProfileLSValue')){
+    let storedValue = localStorage.getItem('switchProfileLSValue');
+    console.log("Stored value of switchProfile :", storedValue);
+    if (storedValue === "on") {
+      $(switchProfile).attr("checked", true).val("on");
+    } else if (storedValue === "off") {
+      $(switchProfile).attr("checked", false).val("off");
+    }
+  }
+
+  //work of this one
+  if (localStorage.getItem('timezoneLSValue')){
+    let storedValue = localStorage.getItem('timezoneLSValue');
+    console.log("Stored value of select :", storedValue);
+    if (storedValue === "on") {
+      $(switchProfile).attr("checked", true).val("on");
+    } else if (storedValue === "off") {
+      $(switchProfile).attr("checked", false).val("off");
+    }
+  }
+
+  $(form).submit(function(e){
+    e.preventDefault();
+    console.log("Submit prevented");
+    let timezoneValue = select[select.selectedIndex].value;
+    let switchEmailValue = switchEmail.value;
+    let switchProfileValue = switchProfile.value;
+    console.log("timezoneValue :", timezoneValue);
+    console.log("switchEmailValue :", switchEmailValue);
+    console.log("switchProfileValue :", switchProfileValue);
+    
+    localStorage.setItem('timezoneLSValue', timezoneValue);
+    localStorage.setItem('switchEmailLSValue', switchEmailValue);
+    localStorage.setItem('switchProfileLSValue', switchProfileValue);
+  });
+
 });
