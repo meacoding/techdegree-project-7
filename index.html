@@ -17,6 +17,14 @@
     />
     <title>YourApp | Dashboard</title>
   </head>
+<style type="text/css" id="styles">
+  .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+  }
+  .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0px; 
+  }
+</style>
 
   <body class="body-container">
     <header class="body-item">
@@ -587,8 +595,8 @@
                   SAVE
                 </button>
     
-                <button type="button" form="form-settings" id="cancelSettings" aria-label="Cancel">
-                  CANCEL
+                <button type="button" id="resetSettings" aria-label="Cancel">
+                  RESET
                 </button>
               </div>
           </form>

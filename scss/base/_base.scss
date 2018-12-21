@@ -269,12 +269,12 @@ footer {
   border: 2px solid #CACBCE; border-radius: 50px;
   transition: all 0.3s ease-out 0s; 
 }
-.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
-  margin-left: 0;
-}
-.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
-  right: 0px; 
-}
+// .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+//   margin-left: 0;
+// }
+// .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+//   right: 0px; 
+// }
 
 .form-settings {
   margin: 0 35px 0 25px;
@@ -327,7 +327,7 @@ select {
 }
 
 #saveSettings,
-#cancelSettings {
+#resetSettings {
   height: 50px;
   color: #fff;
   border: none;
@@ -339,7 +339,7 @@ select {
   margin-right: 15px;
   background-color: #7377bf;
 } //move to media query
-#cancelSettings {
+#resetSettings {
   margin-left: 15px;
   background-color: #B2B2B2;
 } //move to media query

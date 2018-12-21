@@ -204,7 +204,7 @@ document.addEventListener("DOMContentLoaded", e => {
   const switchProfile = document.getElementById('setProfileToPublic');
   const select = document.getElementById('timezones');
   const save = document.getElementById('saveSettings');
-  const cancel = document.getElementById('cancelSettings');
+  const reset = document.getElementById('resetSettings');
 
   $(switchEmail).click(function() {
     if ($(this).is(':checked') === true ) {
@@ -228,7 +228,6 @@ document.addEventListener("DOMContentLoaded", e => {
     }
   });
 
-
   if (localStorage.getItem('switchEmailLSValue')){
     let storedValue = localStorage.getItem('switchEmailLSValue');
     console.log("Stored value of switchEmail :", storedValue);
@@ -249,30 +248,39 @@ document.addEventListener("DOMContentLoaded", e => {
     }
   }
 
-  //work of this one
   if (localStorage.getItem('timezoneLSValue')){
     let storedValue = localStorage.getItem('timezoneLSValue');
     console.log("Stored value of select :", storedValue);
-    if (storedValue === "on") {
-      $(switchProfile).attr("checked", true).val("on");
-    } else if (storedValue === "off") {
-      $(switchProfile).attr("checked", false).val("off");
-    }
+    document.querySelector('select [value="' + storedValue + '"]').selected = true;
   }
 
   $(form).submit(function(e){
     e.preventDefault();
     console.log("Submit prevented");
-    let timezoneValue = select[select.selectedIndex].value;
     let switchEmailValue = switchEmail.value;
     let switchProfileValue = switchProfile.value;
-    console.log("timezoneValue :", timezoneValue);
+    let timezoneValue = select[select.selectedIndex].value;
     console.log("switchEmailValue :", switchEmailValue);
+    console.log("timezoneValue :", timezoneValue);
     console.log("switchProfileValue :", switchProfileValue);
     
-    localStorage.setItem('timezoneLSValue', timezoneValue);
     localStorage.setItem('switchEmailLSValue', switchEmailValue);
+    localStorage.setItem('timezoneLSValue', timezoneValue);
     localStorage.setItem('switchProfileLSValue', switchProfileValue);
   });
+
+  $(reset).click(function(){
+    localStorage.removeItem('switchEmailLSValue');
+    localStorage.removeItem('timezoneLSValue');
+    localStorage.removeItem('switchProfileLSValue');
+    console.log('-----\n Cleared settings from localStorage \n -----');
+
+    $(switchEmail).prop("checked", true).attr("checked", true).val("on");
+    $(switchProfile).prop("checked", true).attr("checked", true).val("on");
+    //.prop() alone won't add the checked property
+    //.attr() alone won't refresh CSS on switch
+
+    document.querySelector('select [value=""]').selected = true;
+  })
 
 });
