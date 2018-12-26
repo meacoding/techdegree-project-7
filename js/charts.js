@@ -1,28 +1,12 @@
 Chart.defaults.global.legend.display = false;
 
 //=================================
-//  Weekly - Line Chart
+//  Line Charts
 //=================================
 
-var chartWeekly = document.getElementById("chart-weekly").getContext("2d");
-var chart = new Chart(chartWeekly, {
-  // The type of chart we want to create
-  type: "line",
-
-  // The data for our dataset
-  data: {
-    labels: ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"],
-    datasets: [
-      {
-        label: "Weekly",
-        borderWidth: 2,
-        data: [700, 1250, 1000, 800, 600, 1100, 1600]
-      }
-    ]
-  },
-
-  // Configuration options go here
-  options: {
+const lineChartOptions = custom => {
+  let custom;
+  let customOptions = {
     maintainAspectRatio: false,
     responsive: true,
     layout: {
@@ -49,10 +33,11 @@ var chart = new Chart(chartWeekly, {
       yAxes: [
         {
           ticks: {
+            custom,
             beginAtZero: true,
-            stepSize: 500,
-            suggestedMin: 500,
-            suggestedMax: 2000,
+            // stepSize: 500,
+            // suggestedMin: 500,
+            // suggestedMax: 2000,
             fontColor: "#888",
             fontFamily: '"Cutive Mono", monospace',
             fontSize: 14
@@ -77,14 +62,70 @@ var chart = new Chart(chartWeekly, {
         }
       ]
     }
+  };
+  return customOptions;
+};
+
+let chartHourlyLine = document
+  .getElementById("chart-hourly-line")
+  .getContext("2d");
+let chartHourlyLineMake = new Chart(chartHourlyLine, {
+  type: "line",
+  data: {
+    labels: [
+      "1a",
+      "2a",
+      "3a",
+      "4a",
+      "5a",
+      "6a",
+      "7a",
+      "8a",
+      "9a",
+      "10a",
+      "11a",
+      "12a"
+    ],
+    datasets: [
+      {
+        label: "Hourly",
+        borderWidth: 2,
+        data: [70, 125, 100, 80, 60, 110, 160, 90, 90, 90, 90, 90]
+      }
+    ]
+  },
+  options: {
+    lineChartOptions(
+      stepSize: 50,
+      suggestedMin: 50,
+      suggestedMax: 200
+    )
   }
 });
+
+// let chartDailyLine = document
+//   .getElementById("chart-daily-line")
+//   .getContext("2d");
+// let chartDailyLineMake = new Chart(chartDailyLine, {
+//   type: "line",
+//   data: {
+//     labels: ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"],
+//     datasets: [
+//       {
+//         label: "Daily",
+//         borderWidth: 2,
+//         data: [700, 1250, 1000, 800, 600, 1100, 1600]
+//       }
+//     ]
+//   },
+//   options: lineChartOptions
+// });
 
 //=================================
 //  Daily - Bar Graph
 //=================================
-var chartDaily = document.getElementById("chart-daily").getContext("2d");
-var chart = new Chart(chartDaily, {
+const chartDaily = document.getElementById("chart-daily").getContext("2d");
+let chart = new Chart(chartDaily, {
   // The type of chart we want to create
   type: "bar",
 
