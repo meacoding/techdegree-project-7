@@ -57,7 +57,11 @@ main {
     display: inline-flex;
     align-items: center;
     margin-left: 10px;
+    cursor: pointer;
   }
+}
+.display-none {
+  display: none;
 }
 
 .traffic {
@@ -269,12 +273,12 @@ footer {
   border: 2px solid #CACBCE; border-radius: 50px;
   transition: all 0.3s ease-out 0s; 
 }
-// .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
-//   margin-left: 0;
-// }
-// .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
-//   right: 0px; 
-// }
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+  margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+  right: 0px; 
+}
 
 .form-settings {
   margin: 0 35px 0 25px;

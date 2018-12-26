@@ -17,14 +17,6 @@
     />
     <title>YourApp | Dashboard</title>
   </head>
-<style type="text/css" id="styles">
-  .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
-    margin-left: 0;
-  }
-  .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
-    right: 0px; 
-  }
-</style>
 
   <body class="body-container">
     <header class="body-item">
@@ -237,12 +229,15 @@
           <div class="heading">
             <h1>Traffic</h1>
             <div class="chart-toggle">
-              <span class="active">Hourly</span> <span>Daily</span>
-              <span>Weekly</span> <span>Monthly</span>
+              <span id="hourly" class="active">Hourly</span>
+              <span id="daily">Daily</span>
+              <span id="weekly">Weekly</span>
+              <span id="monthly">Monthly</span>
             </div>
           </div>
-          <div class="chart"><canvas id="chart-hourly-line"></canvas></div>
-          <!-- <div class="chart"><canvas id="chart-daily-line"></canvas></div> -->
+          <div class="chart">
+            <canvas id="insert-line-chart"></canvas>
+          </div>
         </section>
         <section class="daily-traffic">
           <div class="heading"><h1>Daily Traffic</h1></div>
