@@ -4,8 +4,73 @@ Chart.defaults.global.legend.display = false;
 //  Line Charts
 //=================================
 
-const lineChartOptions = (a, b, c) => {
-  let customOptions = {
+let insertLineChart = document
+  .getElementById("insert-line-chart")
+  .getContext("2d");
+
+let lineChart = new Chart(insertLineChart, {
+  type: "line",
+  data: {
+    labels: [
+      "12am",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12pm",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11pm"
+    ],
+    datasets: [
+      {
+        label: "Hourly",
+        borderWidth: 2,
+        data: [
+          70,
+          125,
+          100,
+          80,
+          60,
+          110,
+          160,
+          90,
+          70,
+          125,
+          100,
+          80,
+          60,
+          110,
+          160,
+          90,
+          70,
+          125,
+          100,
+          80,
+          60,
+          110,
+          160,
+          90
+        ]
+      }
+    ]
+  },
+  options: {
     maintainAspectRatio: false,
     responsive: true,
     layout: {
@@ -33,16 +98,15 @@ const lineChartOptions = (a, b, c) => {
         {
           ticks: {
             beginAtZero: true,
-            stepSize: a,
-            suggestedMin: b,
-            suggestedMax: c,
+            stepSize: 50,
+            suggestedMin: 50,
+            suggestedMax: 200,
             fontColor: "#888",
             fontFamily: '"Cutive Mono", monospace',
             fontSize: 14
           },
           gridLines: {
             drawTicks: false
-            // offsetGridLines: true
           }
         }
       ],
@@ -55,150 +119,189 @@ const lineChartOptions = (a, b, c) => {
           },
           gridLines: {
             drawTicks: false
-            // offsetGridLines: true
           }
         }
       ]
     }
-  };
-  return customOptions;
-};
-
-const insertLineChart = document
-  .getElementById("insert-line-chart")
-  .getContext("2d");
+  }
+});
 
 const chartHourlyLine = document.getElementById("hourly");
 const chartDailyLine = document.getElementById("daily");
 const chartWeeklyLine = document.getElementById("weekly");
 const chartMonthlyLine = document.getElementById("monthly");
 
-let chartHourlyLineMake = () => {
-  new Chart(insertLineChart, {
-    type: "line",
-    data: {
-      labels: [
-        "12am",
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "11",
-        "12pm",
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "11pm"
-      ],
-      datasets: [
-        {
-          label: "Hourly",
-          borderWidth: 2,
-          data: [70, 125, 100, 80, 60, 110, 160, 90, 70, 125, 100, 80, 60, 110, 160, 90, 70, 125, 100, 80, 60, 110, 160, 90]
-        }
-      ]
-    },
-    options: lineChartOptions(50, 50, 200)
-  });
-  return chartHourlyLineMake;
-};
+function removeData() {
+  lineChart.data.labels;
+  lineChart.data.datasets;
+  lineChart.update();
+}
+function addData(label, data) {
+  lineChart.data.labels = label;
+  lineChart.data.datasets = [data];
+  lineChart.update();
+}
 
-chartHourlyLineMake();  //loads once initially on DOM load
+function updateYAxesSteps(a, b, c) {
+  lineChart.options.scales.yAxes[0].ticks.stepSize = a;
+  lineChart.options.scales.yAxes[0].ticks.suggestedMax = b;
+  lineChart.options.scales.yAxes[0].ticks.suggestedMin = c;
+  lineChart.update();
+}
 
 chartHourlyLine.addEventListener("click", e => {
   const active = document.querySelectorAll(".active")[0];
-  chartHourlyLineMake();
+  const labels = [
+    "12am",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12pm",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11pm"
+  ];
+  const data = {
+    label: "Hourly",
+    borderWidth: 2,
+    data: [
+      70,
+      125,
+      100,
+      80,
+      60,
+      110,
+      160,
+      90,
+      70,
+      125,
+      100,
+      80,
+      60,
+      110,
+      160,
+      90,
+      70,
+      125,
+      100,
+      80,
+      60,
+      110,
+      160,
+      90
+    ]
+  };
   active.classList.remove("active");
   chartHourlyLine.classList.add("active");
+  removeData();
+  addData(labels, data);
+  updateYAxesSteps(50, 50, 200);
 });
 
 chartDailyLine.addEventListener("click", e => {
   const active = document.querySelectorAll(".active")[0];
-  let chartDailyLineMake = new Chart(insertLineChart, {
-    type: "line",
-    data: {
-      labels: ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"],
-      datasets: [
-        {
-          label: "Daily",
-          borderWidth: 2,
-          data: [700, 1250, 1000, 800, 600, 1100, 1600]
-        }
-      ]
-    },
-    options: lineChartOptions(500, 500, 2000)
-  });
+  const labels = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+  const data = {
+    label: "Daily",
+    borderWidth: 2,
+    data: [700, 1250, 1000, 800, 600, 1100, 1600]
+  };
   active.classList.remove("active");
   chartDailyLine.classList.add("active");
-  return chartDailyLineMake;
+  removeData();
+  addData(labels, data);
+  updateYAxesSteps(500, 500, 2000);
 });
 
 chartWeeklyLine.addEventListener("click", e => {
   const active = document.querySelectorAll(".active")[0];
-  let chartWeeklyLineMake = new Chart(insertLineChart, {
-    type: "line",
-    data: {
-      labels: ["-10 WEEKS", "-9 WEEKS", "-8 WEEKS", "-7 WEEKS", "-6 WEEKS", "-5 WEEKS", "-4 WEEKS", "-3 WEEKS", "-2 WEEKS", "LAST WEEK"],
-      datasets: [
-        {
-          label: "Weekly",
-          borderWidth: 2,
-          data: [7000, 12500, 10000, 8000, 6000, 11000, 16000, 8000, 17000, 19500]
-        }
-      ]
-    },
-    options: lineChartOptions(5000, 5000, 20000)
-  });
+  const labels = [
+    "-10 WEEKS",
+    "-9 WEEKS",
+    "-8 WEEKS",
+    "-7 WEEKS",
+    "-6 WEEKS",
+    "-5 WEEKS",
+    "-4 WEEKS",
+    "-3 WEEKS",
+    "-2 WEEKS",
+    "LAST WEEK"
+  ];
+  const data = {
+    label: "Weekly",
+    borderWidth: 2,
+    data: [7000, 12500, 10000, 8000, 6000, 11000, 16000, 8000, 17000, 19500]
+  };
   active.classList.remove("active");
   chartWeeklyLine.classList.add("active");
-  return chartWeeklyLineMake;
+  removeData();
+  addData(labels, data);
+  updateYAxesSteps(5000, 5000, 20000);
 });
 
 chartMonthlyLine.addEventListener("click", e => {
   const active = document.querySelectorAll(".active")[0];
-  let chartMonthlyLineMake = new Chart(insertLineChart, {
-    type: "line",
-    data: {
-      labels: ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC",],
-      datasets: [
-        {
-          label: "Monthly",
-          borderWidth: 2,
-          data: [70000, 125000, 100000, 80000, 60000, 110000, 160000, 70000, 125000, 100000, 80000, 60000]
-        }
-      ]
-    },
-    options: lineChartOptions(50000, 50000, 200000)
-  });
+  const labels = [
+    "JAN",
+    "FEB",
+    "MAR",
+    "APR",
+    "MAY",
+    "JUN",
+    "JUL",
+    "AUG",
+    "SEP",
+    "OCT",
+    "NOV",
+    "DEC"
+  ];
+  const data = {
+    label: "Monthly",
+    borderWidth: 2,
+    data: [
+      70000,
+      125000,
+      100000,
+      80000,
+      60000,
+      110000,
+      160000,
+      70000,
+      125000,
+      100000,
+      80000,
+      60000
+    ]
+  };
   active.classList.remove("active");
   chartMonthlyLine.classList.add("active");
-  return chartMonthlyLineMake;
+  removeData();
+  addData(labels, data);
+  updateYAxesSteps(50000, 50000, 200000);
 });
-
-
 
 //=================================
 //  Daily - Bar Graph
 //=================================
 const chartDaily = document.getElementById("chart-daily").getContext("2d");
 let chart = new Chart(chartDaily, {
-  // The type of chart we want to create
   type: "bar",
-
-  // The data for our dataset
   data: {
     labels: ["S", "M", "T", "W", "T", "F", "S"],
     datasets: [
@@ -211,7 +314,6 @@ let chart = new Chart(chartDaily, {
     ]
   },
 
-  // Configuration options go here
   options: {
     maintainAspectRatio: false,
     responsive: true,
@@ -305,7 +407,6 @@ var chart3 = new Chart(chartUsers, {
       let text = [];
       text.push("<ul>");
       for (let i = 0; i < chart.data.datasets[0].backgroundColor.length; i++) {
-        // console.log(chart.data.datasets[0]); // see what's inside the obj.
         text.push("<li>");
         text.push(
           '<div style="background-color:' +
@@ -322,6 +423,5 @@ var chart3 = new Chart(chartUsers, {
     }
   }
 });
-// console.log(chart3.data.datasets.data);
 
 document.getElementById("js-legend").innerHTML = chart3.generateLegend();
