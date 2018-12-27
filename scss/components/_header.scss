@@ -3,8 +3,7 @@
 //=================================
 
 header {
-  display: flex;
-  justify-content: space-between;
+  @include flex($justify: space-between);
   padding: 0 20px;
   background-color: #7477bf;
   color: #fff;
@@ -13,8 +12,7 @@ header {
     font-size: 20px;
   }
   div {
-    display: flex;
-    align-items: center;
+    @include flex($align: center);
     .bell {
       cursor: pointer;
       height: 25px;

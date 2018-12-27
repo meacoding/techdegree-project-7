@@ -2,10 +2,12 @@
 //  Section: tab-and-search
 //=================================
 
+/* tab-and-search container */
+
 .tab-and-search {
   background-color: #fff;
 }
-// tab-and-search container
+
 .tab {
   background-color: #fff;
   font-size: 20px;
@@ -22,8 +24,7 @@
   padding: 25px 25px;
 }
 .alert-message {
-  display: flex;
-  justify-content: space-between;
+  @include flex($justify: space-between);
   background-color: #7377bf;
   height: 40px;
   color: white;

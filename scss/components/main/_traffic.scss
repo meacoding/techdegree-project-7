@@ -2,6 +2,31 @@
 //  Section: traffic
 //=================================
 
+/* traffic */
+
+.chart-toggle {
+  .active {
+    background-color: #81c98f;
+    color: #fff;
+  }
+  span {
+    font-weight: 700;
+    color: #8f8f8f;
+    border-radius: 15px;
+    padding: 0 10px;
+    height: 25px;
+    display: inline-flex;
+    align-items: center;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+}
+
+.traffic canvas {
+  box-sizing: border-box;
+  font-family: $font-chart;
+}
+
 // .btn--default
 // .btn--success
 // .btn--error

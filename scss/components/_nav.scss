@@ -25,9 +25,7 @@ nav {
     // background-color: red;
     cursor: pointer;
   }
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @include flex($justify: space-between, $align: center);
   height: 60px;
   margin: 16px 0;
   .nav-active {

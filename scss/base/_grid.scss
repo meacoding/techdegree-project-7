@@ -2,6 +2,8 @@
 //  Grids
 //=================================
 
+/* grid */
+
 //outermost container
 .body-container {
   height: 100vh;
@@ -12,7 +14,6 @@
   grid-template-areas:
     "header header"
     "nav main";
-    // "footer footer";
 }
 header {
   grid-area: header;
@@ -23,9 +24,6 @@ nav {
 main {
   grid-area: main;
 }
-// footer {
-//   grid-area: footer;
-// }
 
 //main container
 .main-container {

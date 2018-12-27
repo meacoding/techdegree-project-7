@@ -2,6 +2,12 @@
 //  Mixins
 //=================================
 
+@mixin flex($justify: null, $align: null) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+
 // @mixin flex($direct: null, $wrap: null) {
 //   display: flex;
 //   flex-direction: $direct;
@@ -29,9 +35,4 @@
 // @mixin margin-hor($margin) {
 //   margin-left: $margin;
 //   margin-right: $margin;
-// }
-
-// @mixin perfect-center {
-//   justify-content: center;
-//   align-items: center;
 // }

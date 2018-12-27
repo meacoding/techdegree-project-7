@@ -1,0 +1,142 @@
+//=================================
+//  Section: settings
+//=================================
+
+/* settings */
+
+.onoffswitch {
+  position: relative;
+  width: 85px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+.onoffswitch-checkbox {
+  display: none;
+}
+.onoffswitch-label {
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid #cacbce;
+  border-radius: 50px;
+}
+.onoffswitch-inner {
+  display: block;
+  width: 200%;
+  margin-left: -100%;
+  transition: margin 0.3s ease-out 0s;
+}
+.onoffswitch-inner:before,
+.onoffswitch-inner:after {
+  display: block;
+  float: left;
+  width: 50%;
+  height: 30px;
+  padding: 0;
+  line-height: 30px;
+  font-size: 14px;
+  color: white;
+  font-family: $font-switch;
+  font-weight: bold;
+  box-sizing: border-box;
+}
+.onoffswitch-inner:before {
+  content: "ON";
+  padding-left: 10px;
+  background-color: #7477bf;
+  color: #ffffff;
+}
+.onoffswitch-inner:after {
+  content: "OFF";
+  padding-right: 10px;
+  background-color: #b2b2b2;
+  color: #ffffff;
+  text-align: right;
+}
+.onoffswitch-switch {
+  display: block;
+  width: 20px;
+  margin: 5px;
+  background: #ffffff;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 51px;
+  border: 2px solid #cacbce;
+  border-radius: 50px;
+  transition: all 0.3s ease-out 0s;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+  margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+  right: 0px;
+}
+
+.form-settings {
+  margin: 0 35px 0 25px;
+}
+.setting-switch {
+  @include flex($align: center);
+  margin: 10px 0;
+}
+
+.setting-switch p {
+  width: 195px;
+  font-size: 14px;
+}
+
+select {
+  font-family: $font;
+  font-size: 14px;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  margin-top: 40px;
+  padding: 11px 20px;
+  border: 1px solid #d1d1d1;
+  border-radius: 5px;
+  background-color: #fbfbfb;
+
+  -webkit-appearance: none; //Removes default chrome and safari style
+  -moz-appearance: none; //Removes Default Firefox style
+  background: url("../../images/angle-down.svg") no-repeat; //Adds background-image
+  background-position: 98%; //Position of the background-image
+  background-size: 11px;
+  text-indent: 0.01px; //Removes default arrow from firefox
+  text-overflow: ""; //Removes default arrow from firefox
+
+  &:invalid {
+    color: #bcbcbc;
+  }
+  &:valid {
+    color: #666666;
+  }
+  option {
+    color: #666666;
+  }
+  //"placeholder" select option not visible in Firefox
+}
+
+.buttonContainer {
+  justify-content: space-between;
+}
+
+#saveSettings,
+#resetSettings {
+  height: 50px;
+  color: #fff;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+#saveSettings {
+  margin-right: 15px;
+  background-color: #7377bf;
+} //move to media query
+#resetSettings {
+  margin-left: 15px;
+  background-color: #b2b2b2;
+} //move to media query

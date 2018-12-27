@@ -1,0 +1,33 @@
+//=================================
+//  Section: mobile users
+//=================================
+
+/* mobile users */
+
+.legend-users {
+  display: block;
+  width: 150px;
+  li {
+    @include flex($align: center);
+    margin-bottom: 20px;
+  }
+  li div:first-child {
+    width: 26px;
+    height: 26px;
+    margin-right: 15px;
+    border-radius: 5px;
+  }
+  ul {
+    list-style-type: none;
+    display: inline-block;
+    width: 100px;
+    padding-left: 25px;
+  }
+}
+
+.doughnut-margin {
+  margin-right: 45px;
+}
+.doughnut {
+  width: 300px;
+}
