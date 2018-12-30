@@ -19,30 +19,45 @@
 
 nav {
   background-color: #4d4c72;
+  display: flex;
+  justify-content: space-evenly;
+  @media (min-width: 768px) {
+    display: block;
+  }
 }
 .nav-item {
+  @include flex($justify: space-between, $align: center);
+  height: 40px;
+  @media (min-width: 768px) {
+    height: 60px;
+    margin: 16px 0;
+  }
+
   &:hover {
-    // background-color: red;
     cursor: pointer;
   }
-  @include flex($justify: space-between, $align: center);
-  height: 60px;
-  margin: 16px 0;
   .nav-active {
+    display: none;
+    background-color: #85db80;
     height: 100%;
     width: 3px;
-    background-color: #85db80;
     border-radius: 0 3px 3px 0;
+    @media (min-width: 768px) {
+      display: block;
+    }
   }
   .nav-balance {
     width: 3px;
     height: 100%;
   }
   .nav-icon {
-    height: 32px;
+    height: 25px;
     &:hover,
     &:active {
       height: 35px;
+    }
+    @media (min-width: 768px) {
+      height: 32px;
     }
   }
   // Hard-coded in place of dynamic JS

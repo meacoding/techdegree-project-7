@@ -5,6 +5,11 @@
 /* traffic */
 
 .chart-toggle {
+  display: flex;
+  justify-content: center;
+  @media (min-width: 768px) {
+    display: block;
+  }
   .active {
     background-color: #81c98f;
     color: #fff;
@@ -26,6 +31,10 @@
   box-sizing: border-box;
   font-family: $font-chart;
 }
+
+// #insert-line-chart {
+//   max-width: calc(100vw - 90px);
+// }
 
 // .btn--default
 // .btn--success

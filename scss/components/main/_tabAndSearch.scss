@@ -10,8 +10,10 @@
 
 .tab {
   background-color: #fff;
-  font-size: 20px;
   text-align: center;
+  @media (min-width: 768px) {
+    font-size: 20px;
+  }
 }
 .search {
   background-color: #fbfbfb;
@@ -26,7 +28,7 @@
 .alert-message {
   @include flex($justify: space-between);
   background-color: #7377bf;
-  height: 40px;
+  min-height: 40px;
   color: white;
   border-radius: 3px;
   padding: 0 15px;

@@ -41,6 +41,8 @@ let lineChart = new Chart(insertLineChart, {
       {
         label: "Hourly",
         borderWidth: 2,
+        backgroundColor: "#E2E3F6",
+        pointBackgroundColor: "rgb(251, 251, 251)",
         data: [
           70,
           125,
@@ -88,7 +90,6 @@ let lineChart = new Chart(insertLineChart, {
         borderColor: "rgb(167, 169, 228)"
       },
       point: {
-        backgroundColor: "rgb(255, 255, 255)",
         radius: 6,
         borderColor: "rgb(116, 120, 191)"
       }
@@ -297,9 +298,10 @@ chartMonthlyLine.addEventListener("click", e => {
 });
 
 //=================================
-//  Daily - Bar Graph
+//  Bar Graph - Daily
 //=================================
 const chartDaily = document.getElementById("chart-daily").getContext("2d");
+
 let chart = new Chart(chartDaily, {
   type: "bar",
   data: {
@@ -362,9 +364,10 @@ let chart = new Chart(chartDaily, {
     }
   }
 });
+Chart.defaults.global.elements.point;
 
 //=================================
-//  Users - Doughnut Chart
+//  Doughnut Chart - Users
 //=================================
 
 var chartUsers = document.getElementById("chart-users").getContext("2d");

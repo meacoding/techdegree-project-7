@@ -5,15 +5,25 @@
 /* social stats */
 
 .social-wrap {
+  @include flex($align: center);
   margin-top: 15px;
   justify-content: space-between;
   padding: 0 25px;
+  flex-direction: column;
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
 }
 .social-ind {
   height: 115px;
-  width: 325px;
-  background-color: #fbfbfb;
-  border: 1px solid #d1d1d1;
+  width: 300px;
+  @include flex($align: center);
+  @media (min-width: 768px) {
+    width: 325px;
+    margin-bottom: 20px;
+    background-color: #fbfbfb;
+    border: 1px solid #d1d1d1;
+  }
   border-radius: 5px;
   div {
     margin: 0 50px 0 20px;
@@ -34,4 +44,5 @@
 .social-icon {
   height: 72px;
   width: 72px;
+  margin-left: 25px;
 }

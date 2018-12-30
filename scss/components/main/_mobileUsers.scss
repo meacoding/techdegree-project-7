@@ -6,7 +6,9 @@
 
 .legend-users {
   display: block;
-  width: 150px;
+  @media (min-width: 768px) {
+    width: 150px;
+  }
   li {
     @include flex($align: center);
     margin-bottom: 20px;
@@ -21,13 +23,23 @@
     list-style-type: none;
     display: inline-block;
     width: 100px;
-    padding-left: 25px;
+    padding-left: 0;
+    @media (min-width: 768px) {
+      padding-left: 25px;
+    }
   }
 }
 
 .doughnut-margin {
-  margin-right: 45px;
+  margin: 0;
+  @include flex($justify: center, $align: center);
+  flex-direction: column;
+  @media (min-width: 768px) {
+    flex-direction: row;
+    margin-right: 45px;
+  }
 }
 .doughnut {
   width: 300px;
+  max-width: none;
 }

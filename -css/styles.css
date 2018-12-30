@@ -31,16 +31,16 @@ h1 {
 }
 
 .heading {
-  display: block;
-  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 25px;
   margin: 25px 25px 0;
 }
 @media (min-width: 768px) {
   .traffic .heading {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 25px;
+    display: block;
+    height: auto;
   }
 }
 
@@ -118,15 +118,9 @@ main {
 
 .tab-and-search-container {
   display: grid;
-  grid-template-columns: 100px auto;
-  grid-template-rows: 40px minmax(min-content, max-content);
+  grid-template-columns: 155px auto;
+  grid-template-rows: 65px minmax(min-content, max-content);
   grid-template-areas: "tab   search" "alert alert";
-}
-@media (min-width: 768px) {
-  .tab-and-search-container {
-    grid-template-columns: 155px auto;
-    grid-template-rows: 65px minmax(min-content, max-content);
-  }
 }
 
 .tab {
@@ -337,12 +331,8 @@ nav {
 
 .tab {
   background-color: #fff;
+  font-size: 20px;
   text-align: center;
-}
-@media (min-width: 768px) {
-  .tab {
-    font-size: 20px;
-  }
 }
 
 .search {
@@ -379,15 +369,6 @@ nav {
 }
 
 /* traffic */
-.chart-toggle {
-  display: flex;
-  justify-content: center;
-}
-@media (min-width: 768px) {
-  .chart-toggle {
-    display: block;
-  }
-}
 .chart-toggle .active {
   background-color: #81c98f;
   color: #fff;
@@ -462,8 +443,6 @@ nav {
 
 /* social stats */
 .social-wrap {
-  display: flex;
-  align-items: center;
   margin-top: 15px;
   justify-content: space-between;
   padding: 0 25px;
@@ -478,16 +457,14 @@ nav {
 .social-ind {
   height: 115px;
   width: 300px;
-  display: flex;
-  align-items: center;
+  margin-bottom: 20px;
+  background-color: #fbfbfb;
+  border: 1px solid #d1d1d1;
   border-radius: 5px;
 }
-@media (min-width: 768px) {
+@media (min-width: 768) {
   .social-ind {
     width: 325px;
-    margin-bottom: 20px;
-    background-color: #fbfbfb;
-    border: 1px solid #d1d1d1;
   }
 }
 .social-ind div {
@@ -509,7 +486,6 @@ nav {
 .social-icon {
   height: 72px;
   width: 72px;
-  margin-left: 25px;
 }
 
 /* new members */

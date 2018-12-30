@@ -17,24 +17,40 @@ h1 {
   @include flex($justify: center, $align: center);
 }
 .member-img {
+  display: inline-block;
   cursor: pointer;
   height: 38px;
   width: 38px;
   border-radius: 50%;
+  @media (min-width: 768px) {
+    display: block;
+  }
 }
 
 .heading {
-  @include flex($justify: space-between, $align: center);
-  height: 25px;
+  display: block;
+  height: auto;
   margin: 25px 25px 0;
+  .traffic & {
+    @media (min-width: 768px) {
+      @include flex($justify: space-between, $align: center);
+      height: 25px;
+    }
+  }
 }
 
 .chart {
   position: relative;
-  // Move width to media query
-  width: calc(100vw - (100vw - 100%)); // only Chrome likes
-  max-width: calc(100vw - 90px); // only Firefox likes - in width
+  // width: 100vw;
+  // min-width: 0;
+  // @media (min-width: 768px) {
+  //   width: calc(100vw - (100vw - 100%)); // only Chrome likes
+  //   max-width: calc(100vw - 90px); // only Firefox likes - in width
+  // }
   height: 300px;
+  // @media (min-width: 768px) {
+  //   height: 300px;
+  // }
 }
 
 main,
@@ -47,4 +63,10 @@ main,
 .message-user,
 .settings {
   background-color: #fff;
+}
+
+.social-stats,
+.message-user,
+.settings {
+  padding-bottom: 25px;
 }
