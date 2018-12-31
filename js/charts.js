@@ -3,6 +3,38 @@ Chart.defaults.global.legend.display = false;
 //=================================
 //  Line Charts
 //=================================
+const chartLineHourly = document.getElementById("hourly");
+const chartLineDaily = document.getElementById("daily");
+const chartLineWeekly = document.getElementById("weekly");
+const chartLineMonthly = document.getElementById("monthly");
+
+const removeData = () => {
+  lineChart.data.labels;
+  lineChart.data.datasets;
+  lineChart.update();
+};
+const addData = (label, data) => {
+  lineChart.data.labels = label;
+  lineChart.data.datasets = [data];
+  lineChart.update();
+};
+
+const updateYAxesSteps = (a, b, c) => {
+  const updateLineChartTicks = lineChart.options.scales.yAxes[0].ticks;
+  updateLineChartTicks.stepSize = a;
+  updateLineChartTicks.suggestedMax = b;
+  updateLineChartTicks.suggestedMin = c;
+  lineChart.update();
+};
+
+const changeClassAndAxes = (chartName, a, b, c, labels, data) => {
+  const active = document.querySelectorAll(".active")[0];
+  active.classList.remove("active");
+  chartName.classList.add("active");
+  removeData();
+  addData(labels, data);
+  updateYAxesSteps(a, b, c);
+};
 
 let insertLineChart = document
   .getElementById("insert-line-chart")
@@ -41,7 +73,7 @@ let lineChart = new Chart(insertLineChart, {
       {
         label: "Hourly",
         borderWidth: 2,
-        backgroundColor: "#E2E3F6",
+        backgroundColor: "rgba(167, 169, 228, .5)",
         pointBackgroundColor: "rgb(251, 251, 251)",
         data: [
           70,
@@ -127,31 +159,7 @@ let lineChart = new Chart(insertLineChart, {
   }
 });
 
-const chartHourlyLine = document.getElementById("hourly");
-const chartDailyLine = document.getElementById("daily");
-const chartWeeklyLine = document.getElementById("weekly");
-const chartMonthlyLine = document.getElementById("monthly");
-
-function removeData() {
-  lineChart.data.labels;
-  lineChart.data.datasets;
-  lineChart.update();
-}
-function addData(label, data) {
-  lineChart.data.labels = label;
-  lineChart.data.datasets = [data];
-  lineChart.update();
-}
-
-function updateYAxesSteps(a, b, c) {
-  lineChart.options.scales.yAxes[0].ticks.stepSize = a;
-  lineChart.options.scales.yAxes[0].ticks.suggestedMax = b;
-  lineChart.options.scales.yAxes[0].ticks.suggestedMin = c;
-  lineChart.update();
-}
-
-chartHourlyLine.addEventListener("click", e => {
-  const active = document.querySelectorAll(".active")[0];
+chartLineHourly.addEventListener("click", e => {
   const labels = [
     "12am",
     "1",
@@ -181,6 +189,8 @@ chartHourlyLine.addEventListener("click", e => {
   const data = {
     label: "Hourly",
     borderWidth: 2,
+    backgroundColor: "rgba(167, 169, 228, .5)",
+    pointBackgroundColor: "rgb(251, 251, 251)",
     data: [
       70,
       125,
@@ -208,30 +218,22 @@ chartHourlyLine.addEventListener("click", e => {
       90
     ]
   };
-  active.classList.remove("active");
-  chartHourlyLine.classList.add("active");
-  removeData();
-  addData(labels, data);
-  updateYAxesSteps(50, 50, 200);
+  changeClassAndAxes(chartLineHourly, 50, 50, 200, labels, data);
 });
 
-chartDailyLine.addEventListener("click", e => {
-  const active = document.querySelectorAll(".active")[0];
+chartLineDaily.addEventListener("click", e => {
   const labels = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
   const data = {
     label: "Daily",
     borderWidth: 2,
+    backgroundColor: "rgba(167, 169, 228, .5)",
+    pointBackgroundColor: "rgb(251, 251, 251)",
     data: [700, 1250, 1000, 800, 600, 1100, 1600]
   };
-  active.classList.remove("active");
-  chartDailyLine.classList.add("active");
-  removeData();
-  addData(labels, data);
-  updateYAxesSteps(500, 500, 2000);
+  changeClassAndAxes(chartLineDaily, 500, 500, 2000, labels, data);
 });
 
-chartWeeklyLine.addEventListener("click", e => {
-  const active = document.querySelectorAll(".active")[0];
+chartLineWeekly.addEventListener("click", e => {
   const labels = [
     "-10 WEEKS",
     "-9 WEEKS",
@@ -247,17 +249,14 @@ chartWeeklyLine.addEventListener("click", e => {
   const data = {
     label: "Weekly",
     borderWidth: 2,
+    backgroundColor: "rgba(167, 169, 228, .5)",
+    pointBackgroundColor: "rgb(251, 251, 251)",
     data: [7000, 12500, 10000, 8000, 6000, 11000, 16000, 8000, 17000, 19500]
   };
-  active.classList.remove("active");
-  chartWeeklyLine.classList.add("active");
-  removeData();
-  addData(labels, data);
-  updateYAxesSteps(5000, 5000, 20000);
+  changeClassAndAxes(chartLineWeekly, 5000, 5000, 20000, labels, data);
 });
 
-chartMonthlyLine.addEventListener("click", e => {
-  const active = document.querySelectorAll(".active")[0];
+chartLineMonthly.addEventListener("click", e => {
   const labels = [
     "JAN",
     "FEB",
@@ -275,6 +274,8 @@ chartMonthlyLine.addEventListener("click", e => {
   const data = {
     label: "Monthly",
     borderWidth: 2,
+    backgroundColor: "rgba(167, 169, 228, .5)",
+    pointBackgroundColor: "rgb(251, 251, 251)",
     data: [
       70000,
       125000,
@@ -290,19 +291,15 @@ chartMonthlyLine.addEventListener("click", e => {
       60000
     ]
   };
-  active.classList.remove("active");
-  chartMonthlyLine.classList.add("active");
-  removeData();
-  addData(labels, data);
-  updateYAxesSteps(50000, 50000, 200000);
+  changeClassAndAxes(chartLineMonthly, 50000, 50000, 200000, labels, data);
 });
 
 //=================================
 //  Bar Graph - Daily
 //=================================
-const chartDaily = document.getElementById("chart-daily").getContext("2d");
+const chartBarDaily = document.getElementById("chart-daily").getContext("2d");
 
-let chart = new Chart(chartDaily, {
+let barChart = new Chart(chartBarDaily, {
   type: "bar",
   data: {
     labels: ["S", "M", "T", "W", "T", "F", "S"],
@@ -343,7 +340,6 @@ let chart = new Chart(chartDaily, {
           },
           gridLines: {
             drawTicks: false
-            // offsetGridLines: true
           }
         }
       ],
@@ -356,7 +352,6 @@ let chart = new Chart(chartDaily, {
           },
           gridLines: {
             drawTicks: false
-            // offsetGridLines: true
           },
           barThickness: 30
         }
@@ -364,16 +359,16 @@ let chart = new Chart(chartDaily, {
     }
   }
 });
-Chart.defaults.global.elements.point;
 
 //=================================
 //  Doughnut Chart - Users
 //=================================
 
-var chartUsers = document.getElementById("chart-users").getContext("2d");
-var chart3 = new Chart(chartUsers, {
+var chartDoughnutUsers = document
+  .getElementById("chart-users")
+  .getContext("2d");
+var doughnutChart = new Chart(chartDoughnutUsers, {
   type: "doughnut",
-
   data: {
     labels: ["Phones", "Tablets", "Desktop"],
     datasets: [
@@ -407,16 +402,17 @@ var chart3 = new Chart(chartUsers, {
       }
     },
     legendCallback: function(chart) {
+      const legendStyling = chart.data.datasets[0];
       let text = [];
       text.push("<ul>");
-      for (let i = 0; i < chart.data.datasets[0].backgroundColor.length; i++) {
+      for (let i = 0; i < legendStyling.backgroundColor.length; i++) {
         text.push("<li>");
         text.push(
           '<div style="background-color:' +
-            chart.data.datasets[0].backgroundColor[i] +
+            legendStyling.backgroundColor[i] +
             '">' +
             "</div><div>" +
-            chart.data.datasets[0].label[i] +
+            legendStyling.label[i] +
             "</div>"
         );
         text.push("</li>");
@@ -427,4 +423,4 @@ var chart3 = new Chart(chartUsers, {
   }
 });
 
-document.getElementById("js-legend").innerHTML = chart3.generateLegend();
+document.getElementById("js-legend").innerHTML = doughnutChart.generateLegend();

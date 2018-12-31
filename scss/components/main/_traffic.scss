@@ -7,7 +7,7 @@
 .chart-toggle {
   display: flex;
   justify-content: center;
-  @media (min-width: 768px) {
+  @include mq($break-m) {
     display: block;
   }
   .active {
@@ -32,38 +32,10 @@
   font-family: $font-chart;
 }
 
-// #insert-line-chart {
-//   max-width: calc(100vw - 90px);
-// }
-
-// .btn--default
-// .btn--success
-// .btn--error
-// .btn--warning
-// .btn--info
-// .theme__colors
-
-// @each $btn, $color in $btns {
-//   .btn--#{$btn} {
-//     @extend %button-mixin-buttons;
-
-//     @include mq($break-m) {
-//       @include margin-hor(10px);
-//     }
-
-//     @include mq($break-xl) {
-//       @include margin-hor(20px);
-//     }
-//   }
-// }
-
-// .theme__colors {
-//   @include button($btns, $button);
-//   @include mq($break-m) {
-//     flex-grow: 1;
-//     width: inherit;
-//   }
-//   @include mq($break-xl) {
-//     padding: 0 50px;
-//   }
-// }
+#insert-line-chart {
+  max-width: calc(100vw - 25px);
+  @include mq($break-m) {
+    max-width: calc(100vw - 90px - 25px);
+    //15px of 25px for horizontal overflow
+  }
+}

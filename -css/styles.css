@@ -24,7 +24,7 @@ h1 {
   width: 38px;
   border-radius: 50%;
 }
-@media (min-width: 768px) {
+@media (min-width: $break-m) {
   .member-img {
     display: block;
   }
@@ -37,7 +37,7 @@ h1 {
   height: 25px;
   margin: 25px 25px 0;
 }
-@media (min-width: 768px) {
+@media (min-width: $break-m) {
   .traffic .heading {
     display: block;
     height: auto;
@@ -75,7 +75,7 @@ main,
   grid-template-columns: 1fr;
   grid-template-areas: "header" "nav" "main";
 }
-@media (min-width: 768px) {
+@media (min-width: $break-m) {
   .body-container {
     grid-template-columns: 90px auto;
     grid-template-rows: 70px auto;
@@ -102,7 +102,7 @@ main {
   grid-template-rows: minmax(min-content, max-content) minmax(min-content, max-content);
   grid-template-areas: "tab-and-search " "everything-else ";
 }
-@media (min-width: 768px) {
+@media (min-width: $break-m) {
   .main-container {
     grid-template-columns: 1fr;
   }
@@ -143,7 +143,7 @@ main {
   grid-template-rows: repeat(8, auto);
   grid-template-areas: "traffic" "daily-traffic" "mobile-users" "social-stats" "new-members" "recent-activity" "message-user" "settings";
 }
-@media (min-width: 768px) {
+@media (min-width: $break-m) {
   .everything-else-container {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 350px 350px 230px 350px 350px;
@@ -267,7 +267,7 @@ nav {
   display: flex;
   justify-content: space-evenly;
 }
-@media (min-width: 768px) {
+@media (min-width: $break-m) {
   nav {
     display: block;
   }
@@ -279,7 +279,7 @@ nav {
   align-items: center;
   height: 40px;
 }
-@media (min-width: 768px) {
+@media (min-width: $break-m) {
   .nav-item {
     height: 60px;
     margin: 16px 0;
@@ -295,7 +295,7 @@ nav {
   width: 3px;
   border-radius: 0 3px 3px 0;
 }
-@media (min-width: 768px) {
+@media (min-width: $break-m) {
   .nav-item .nav-active {
     display: block;
   }
@@ -310,7 +310,7 @@ nav {
 .nav-item .nav-icon:hover, .nav-item .nav-icon:active {
   height: 35px;
 }
-@media (min-width: 768px) {
+@media (min-width: $break-m) {
   .nav-item .nav-icon {
     height: 32px;
   }
@@ -394,7 +394,7 @@ nav {
 .legend-users {
   display: block;
 }
-@media (min-width: 768px) {
+@media (min-width: $break-m) {
   .legend-users {
     width: 150px;
   }
@@ -416,7 +416,7 @@ nav {
   width: 100px;
   padding-left: 0;
 }
-@media (min-width: 768px) {
+@media (min-width: $break-m) {
   .legend-users ul {
     padding-left: 25px;
   }
@@ -429,7 +429,7 @@ nav {
   align-items: center;
   flex-direction: column;
 }
-@media (min-width: 768px) {
+@media (min-width: $break-m) {
   .doughnut-margin {
     flex-direction: row;
     margin-right: 45px;
@@ -448,7 +448,7 @@ nav {
   padding: 0 25px;
   flex-direction: column;
 }
-@media (min-width: 768px) {
+@media (min-width: $break-m) {
   .social-wrap {
     flex-direction: row;
   }
@@ -493,7 +493,7 @@ nav {
   margin: 15px 35px 15px 25px;
   justify-content: space-between;
 }
-@media (min-width: 768px) {
+@media (min-width: $break-m) {
   .new-member {
     display: flex;
     justify-content: space-between;

@@ -20,9 +20,11 @@ h1 {
   display: inline-block;
   cursor: pointer;
   height: 38px;
+  min-height: 38px;
   width: 38px;
+  min-width: 38px;
   border-radius: 50%;
-  @media (min-width: 768px) {
+  @include mq($break-m) {
     display: block;
   }
 }
@@ -32,7 +34,7 @@ h1 {
   height: auto;
   margin: 25px 25px 0;
   .traffic & {
-    @media (min-width: 768px) {
+    @include mq($break-m) {
       @include flex($justify: space-between, $align: center);
       height: 25px;
     }
@@ -41,16 +43,7 @@ h1 {
 
 .chart {
   position: relative;
-  // width: 100vw;
-  // min-width: 0;
-  // @media (min-width: 768px) {
-  //   width: calc(100vw - (100vw - 100%)); // only Chrome likes
-  //   max-width: calc(100vw - 90px); // only Firefox likes - in width
-  // }
   height: 300px;
-  // @media (min-width: 768px) {
-  //   height: 300px;
-  // }
 }
 
 main,

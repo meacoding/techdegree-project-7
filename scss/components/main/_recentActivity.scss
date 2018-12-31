@@ -15,3 +15,10 @@
 .member-text .member-activity-3 {
   font-size: 14px;
 }
+
+.arrow {
+  text-align: right;
+  @include mq($break-s) {
+    text-align: inherit;
+  }
+}

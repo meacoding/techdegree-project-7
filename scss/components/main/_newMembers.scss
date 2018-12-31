@@ -5,12 +5,9 @@
 /* new members */
 
 .new-member {
-  // display: block;
   margin: 15px 35px 15px 25px;
   justify-content: space-between;
-  // flex-direction: column;
-  // text-align: center;
-  @media (min-width: 768px) {
+  @include mq($break-s) {
     @include flex($justify: space-between, $align: center);
     margin: 0 35px 0 25px;
     height: 70px;
@@ -20,7 +17,9 @@
   color: #7a7dc1;
 }
 .member-text {
-  margin-left: 10px;
+  @include mq($break-s) {
+    margin-left: 10px;
+  }
   .member-name {
     font-size: 14px;
   }
@@ -29,6 +28,24 @@
   border-bottom: 1px solid #e9e9e9;
 }
 .member-left {
-  // display: block;
-  // text-align: right;
+  @include flex($align: center);
+}
+.member-text,
+.member-date {
+  text-align: right;
+  margin-bottom: 5px;
+  @include mq($break-s) {
+    text-align: inherit;
+    margin-bottom: 0;
+  }
+}
+
+.member-name,
+.member-email,
+.member-text {
+  display: inline-block;
+  width: 100%;
+  @include mq($break-s) {
+    display: block;
+  }
 }

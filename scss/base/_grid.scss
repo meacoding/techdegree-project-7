@@ -15,7 +15,7 @@
     "header"
     "nav"
     "main";
-  @media (min-width: 768px) {
+  @include mq($break-m) {
     grid-template-columns: 90px auto;
     grid-template-rows: 70px auto;
     grid-template-areas:
@@ -37,8 +37,8 @@ main {
 .main-container {
   display: grid;
   background-color: #d2d2d2;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 100%));
-  @media (min-width: 768px) {
+  grid-template-columns: repeat(auto, minmax(320px, 100%));
+  @include mq($break-l) {
     grid-template-columns: 1fr;
   }
   grid-template-rows: minmax(min-content, max-content) minmax(
@@ -60,7 +60,7 @@ main {
   display: grid;
   grid-template-columns: 100px auto;
   grid-template-rows: 40px minmax(min-content, max-content);
-  @media (min-width: 768px) {
+  @include mq($break-l) {
     grid-template-columns: 155px auto;
     grid-template-rows: 65px minmax(min-content, max-content);
   }
@@ -93,7 +93,17 @@ main {
     "recent-activity"
     "message-user"
     "settings";
-  @media (min-width: 768px) {
+  // @include mq($break-m) {
+  // grid-template-columns: 1fr 1fr;
+  // grid-template-areas:
+  // "traffic traffic"
+  // "daily-traffic daily-traffic"
+  // "mobile-users mobile-users"
+  // "social-stats social-stats"
+  // "new-members recent-activity"
+  // "message-user settings";
+  // }
+  @include mq($break-l) {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 350px 350px 230px 350px 350px;
     grid-template-areas:

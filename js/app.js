@@ -1,6 +1,7 @@
 /*jshint esversion: 6 */
 
 document.addEventListener("DOMContentLoaded", e => {
+  //header, new-members & recent-activity: stored data
   const members = [
     {
       memberID: 0,
@@ -82,44 +83,38 @@ document.addEventListener("DOMContentLoaded", e => {
     }
   ];
 
-  //profile image
+  //header: profile image
   const profileImg = document.querySelectorAll(".profile-img")[0];
   profileImg.style.background = `black url('${
     members[0].img
   }') center center / cover no-repeat`;
 
-  //profile name
+  //header: profile name
   const profileName = document.querySelectorAll(".profile-name")[0];
   profileName.innerHTML = `${members[0].firstName} ${members[0].lastName}`;
 
-  //activity: last four new members
+  //alert: hide alert message
+  const alert = document.querySelectorAll(".alert")[0];
+  const hide = document.getElementById("hide");
+  hide.addEventListener("click", e => {
+    alert.style.display = "none";
+  });
+
+  //new-members: last four new members activities in reverse order
   const lastFourNewMembers = members.slice(members.length - 4);
   lastFourNewMembers.reverse();
 
-  //activity: last four member activities
+  //recent-activity: last four member activities in reverse order
   const lastFourOfActivity = activity.slice(activity.length - 4);
   lastFourOfActivity.reverse();
 
-  //The member activity will pull the last 4 entries and reverse order.
-  const memberActivity = i => {
-    const memberActivity = document.querySelectorAll(`.member-activity-${i}`);
-    const memberLookup = members.find(
-      person => person.memberID === lastFourOfActivity[i].memberID
-    );
-    memberActivity[0].style.background = `yellow url('${
-      memberLookup.img
-    }') center center / cover no-repeat`;
-    memberActivity[1].innerHTML = `${memberLookup.firstName} ${
-      memberLookup.lastName
-    } ${lastFourOfActivity[i].action} ${lastFourOfActivity[i].thing}`;
-    memberActivity[2].innerHTML = `${lastFourOfActivity[i].age}`;
+  //new-members & recent activity: pull data from arrays and display
+  const iterateMultipleTimes = (num, runThis) => {
+    for (let i = 0; i < num; i++) {
+      runThis(i);
+    }
   };
-  memberActivity(0);
-  memberActivity(1);
-  memberActivity(2);
-  memberActivity(3);
 
-  //Excessive for demonstrating a mockup but a real project wouldn't be hard coded.
   const memberImg = i => {
     const className = `.member-img.member-${i}`;
     const member = document.querySelectorAll(className);
@@ -129,10 +124,6 @@ document.addEventListener("DOMContentLoaded", e => {
       }') center center / cover no-repeat`;
     }
   };
-  memberImg(0);
-  memberImg(1);
-  memberImg(2);
-  memberImg(3);
 
   const memberName = i => {
     const className = `.member-name.member-${i}`;
@@ -144,10 +135,6 @@ document.addEventListener("DOMContentLoaded", e => {
       member[j].textContent = name;
     }
   };
-  memberName(0);
-  memberName(1);
-  memberName(2);
-  memberName(3);
 
   const memberEmail = i => {
     const className = `.member-email.member-${i}`;
@@ -155,10 +142,6 @@ document.addEventListener("DOMContentLoaded", e => {
     const email = `${lastFourNewMembers[i].email}`;
     member.textContent = email;
   };
-  memberEmail(0);
-  memberEmail(1);
-  memberEmail(2);
-  memberEmail(3);
 
   const memberDate = i => {
     const className = `.member-date.member-${i}`;
@@ -166,121 +149,189 @@ document.addEventListener("DOMContentLoaded", e => {
     const date = `${members[i].signupDate}`;
     member.textContent = date;
   };
-  memberDate(0);
-  memberDate(1);
-  memberDate(2);
-  memberDate(3);
 
-  //Hide alert message
-  const alert = document.querySelectorAll(".alert")[0];
-  const hide = document.getElementById("hide");
-  hide.addEventListener("click", e => {
-    alert.style.display = "none";
-  });
+  const memberActivity = i => {
+    const memberActivity = document.querySelectorAll(`.member-activity-${i}`);
 
-  //Search input - autocomplete
-  let $searchInput = $("#searchName")
-  .val()
-  .toUpperCase(); //might be able to change to JS instead of jQuery
+    const memberLookup = members.find(
+      person => person.memberID === lastFourOfActivity[i].memberID
+    );
 
+    memberActivity[0].style.background = `black url('${
+      memberLookup.img
+    }') center center / cover no-repeat`;
+
+    memberActivity[1].innerHTML = `${memberLookup.firstName} ${
+      memberLookup.lastName
+    } ${lastFourOfActivity[i].action} ${lastFourOfActivity[i].thing}`;
+
+    memberActivity[2].innerHTML = `${lastFourOfActivity[i].age}`;
+  };
+
+  iterateMultipleTimes(4, memberActivity);
+  iterateMultipleTimes(4, memberImg);
+  iterateMultipleTimes(4, memberName);
+  iterateMultipleTimes(4, memberEmail);
+  iterateMultipleTimes(4, memberDate);
+
+  //message-user: search input - autocomplete
   let $names = [];
 
   let $members = () => {
-  for (let i = 0; i < members.length; i++) {
-    $names.push(members[i].firstName + " " + members[i].lastName);
-  }
+    for (let i = 0; i < members.length; i++) {
+      $names.push(members[i].firstName + " " + members[i].lastName);
+    }
   };
   $members();
   $names.sort();
 
   for (i = 0; i < $names.length; i++) {
-    let option = document.createElement('option');
-    option.value = $names[i]; 
+    let option = document.createElement("option");
+    option.value = $names[i];
     datalist.appendChild(option);
   }
 
-  const form = document.getElementById('form-settings');
-  const switchEmail = document.getElementById('emailNotifications');
-  const switchProfile = document.getElementById('setProfileToPublic');
-  const select = document.getElementById('timezones');
-  const save = document.getElementById('saveSettings');
-  const reset = document.getElementById('resetSettings');
+  //message-user: "submit" message to user
+  const sendMessageButton = document.getElementById("sendMessage");
+  const searchNameInput = document.getElementById("searchName");
+  const messageForUserInput = document.getElementById("messageForUser");
 
-  $(switchEmail).click(function() {
-    if ($(this).is(':checked') === true ) {
-      $(this).attr("checked", true).val("on");
-      console.log($(this).prop("checked"), "switchEmail checked true");
-
-    } else if ($(this).is(':checked') === false){
-      $(this).attr("checked", false).val("off");
-      console.log($(this).prop("checked"), "switchEmail checked false");
-    }
-  });
-
-  $(switchProfile).click(function() {
-    if ($(this).is(':checked') === true ) {
-      $(this).attr("checked", true).val("on");
-      console.log($(this).prop("checked"), "switchProfile checked true");
-
-    } else if ($(this).is(':checked') === false){
-      $(this).attr("checked", false).val("off");
-      console.log($(this).prop("checked"), "switchProfile checked false");
-    }
-  });
-
-  if (localStorage.getItem('switchEmailLSValue')){
-    let storedValue = localStorage.getItem('switchEmailLSValue');
-    console.log("Stored value of switchEmail :", storedValue);
-    if (storedValue === "on") {
-      $(switchEmail).attr("checked", true).val("on");
-    } else if (storedValue === "off") {
-      $(switchEmail).attr("checked", false).val("off");
-    }
-  }
-
-  if (localStorage.getItem('switchProfileLSValue')){
-    let storedValue = localStorage.getItem('switchProfileLSValue');
-    console.log("Stored value of switchProfile :", storedValue);
-    if (storedValue === "on") {
-      $(switchProfile).attr("checked", true).val("on");
-    } else if (storedValue === "off") {
-      $(switchProfile).attr("checked", false).val("off");
-    }
-  }
-
-  if (localStorage.getItem('timezoneLSValue')){
-    let storedValue = localStorage.getItem('timezoneLSValue');
-    console.log("Stored value of select :", storedValue);
-    document.querySelector('select [value="' + storedValue + '"]').selected = true;
-  }
-
-  $(form).submit(function(e){
+  sendMessageButton.addEventListener("click", e => {
     e.preventDefault();
-    console.log("Submit prevented");
-    let switchEmailValue = switchEmail.value;
-    let switchProfileValue = switchProfile.value;
-    let timezoneValue = select[select.selectedIndex].value;
-    console.log("switchEmailValue :", switchEmailValue);
-    console.log("timezoneValue :", timezoneValue);
-    console.log("switchProfileValue :", switchProfileValue);
-    
-    localStorage.setItem('switchEmailLSValue', switchEmailValue);
-    localStorage.setItem('timezoneLSValue', timezoneValue);
-    localStorage.setItem('switchProfileLSValue', switchProfileValue);
+
+    const sendMessage = () => {
+      let searchInput = searchNameInput.value;
+      let messageInput = messageForUserInput.value;
+      console.log(typeof searchInput, searchInput);
+      console.log(typeof messageInput, messageInput);
+
+      if (searchInput === "") {
+        window.alert("Please input user name.");
+      } else if (messageInput === "") {
+        window.alert("Please input message for user.");
+      } else {
+        window.alert("Your message has been sent to " + searchInput + "!");
+      }
+    };
+    sendMessage();
   });
 
-  $(reset).click(function(){
-    localStorage.removeItem('switchEmailLSValue');
-    localStorage.removeItem('timezoneLSValue');
-    localStorage.removeItem('switchProfileLSValue');
-    console.log('-----\n Cleared settings from localStorage \n -----');
+  //settings: see below
+  const $form = document.getElementById("form-settings");
+  const $switchEmail = document.getElementById("emailNotifications");
+  const $switchProfile = document.getElementById("setProfileToPublic");
+  const $select = document.getElementById("timezones");
+  const $reset = document.getElementById("resetSettings");
 
-    $(switchEmail).prop("checked", true).attr("checked", true).val("on");
-    $(switchProfile).prop("checked", true).attr("checked", true).val("on");
+  //control email switch
+  $($switchEmail).click(function() {
+    if ($(this).is(":checked") === true) {
+      $(this)
+        .attr("checked", true)
+        .val("on");
+    } else if ($(this).is(":checked") === false) {
+      $(this)
+        .attr("checked", false)
+        .val("off");
+    }
+  });
+
+  //control profile switch
+  $($switchProfile).click(function() {
+    if ($(this).is(":checked") === true) {
+      $(this)
+        .attr("checked", true)
+        .val("on");
+    } else if ($(this).is(":checked") === false) {
+      $(this)
+        .attr("checked", false)
+        .val("off");
+    }
+  });
+
+  //email - if localStorage contains property then display value
+  if (localStorage.getItem("switchEmailLSValue")) {
+    let storedValue = localStorage.getItem("switchEmailLSValue");
+    if (storedValue === "on") {
+      $($switchEmail)
+        .attr("checked", true)
+        .val("on");
+    } else if (storedValue === "off") {
+      $($switchEmail)
+        .attr("checked", false)
+        .val("off");
+    }
+  }
+
+  //profile - if localStorage contains property then display value
+  if (localStorage.getItem("switchProfileLSValue")) {
+    let storedValue = localStorage.getItem("switchProfileLSValue");
+    if (storedValue === "on") {
+      $($switchProfile)
+        .attr("checked", true)
+        .val("on");
+    } else if (storedValue === "off") {
+      $($switchProfile)
+        .attr("checked", false)
+        .val("off");
+    }
+  }
+
+  //timezones - if localStorage contains property then display value
+  if (localStorage.getItem("timezoneLSValue")) {
+    let storedValue = localStorage.getItem("timezoneLSValue");
+    document.querySelector(
+      'select [value="' + storedValue + '"]'
+    ).selected = true;
+  }
+
+  //save settings to localStorage
+  $($form).submit(e => {
+    e.preventDefault();
+    let switchEmailValue = $switchEmail.value;
+    let switchProfileValue = $switchProfile.value;
+    let timezoneValue = $select[$select.selectedIndex].value;
+    localStorage.setItem("switchEmailLSValue", switchEmailValue);
+    localStorage.setItem("timezoneLSValue", timezoneValue);
+    localStorage.setItem("switchProfileLSValue", switchProfileValue);
+  });
+
+  //reset displayed settings and clear from localStorage
+  $($reset).click(() => {
+    localStorage.removeItem("switchEmailLSValue");
+    localStorage.removeItem("timezoneLSValue");
+    localStorage.removeItem("switchProfileLSValue");
+
+    $($switchEmail)
+      .prop("checked", true)
+      .attr("checked", true)
+      .val("on");
+    $($switchProfile)
+      .prop("checked", true)
+      .attr("checked", true)
+      .val("on");
     //.prop() alone won't add the checked property
     //.attr() alone won't refresh CSS on switch
 
     document.querySelector('select [value=""]').selected = true;
-  })
+  });
 
+  // Close the dropdown menu if the user clicks outside of it
+  window.onclick = e => {
+    if (!e.target.matches("#dropbtn")) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      for (var i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains("show")) {
+          openDropdown.classList.remove("show");
+        }
+      }
+    }
+  };
 });
+
+//Toggling the notifications menu
+//Doesn't work inside main eventListener
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}

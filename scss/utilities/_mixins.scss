@@ -8,31 +8,11 @@
   align-items: $align;
 }
 
-// @mixin flex($direct: null, $wrap: null) {
-//   display: flex;
-//   flex-direction: $direct;
-//   flex-wrap: $wrap;
-// }
-
-// @mixin button($map, $class) {
-//   @each $btn, $color in $map {
-//     &#{$class}#{$btn} {
-//       background-color: $color;
-//       @extend %button-mixin-base;
-//     }
-//   }
-// }
-
-// @mixin mq($break) {
-//   @if unitless($break) {
-//     @error "$break may not be unitless, was #{$break}.";
-//   }
-//   @media (min-width: $break) {
-//     @content;
-//   }
-// }
-
-// @mixin margin-hor($margin) {
-//   margin-left: $margin;
-//   margin-right: $margin;
-// }
+@mixin mq($break) {
+  @if unitless($break) {
+    @error "$break may not be unitless, was #{$break}.";
+  }
+  @media (min-width: $break) {
+    @content;
+  }
+}

@@ -21,7 +21,9 @@ h1 {
   display: inline-block;
   cursor: pointer;
   height: 38px;
+  min-height: 38px;
   width: 38px;
+  min-width: 38px;
   border-radius: 50%;
 }
 @media (min-width: 768px) {
@@ -98,11 +100,11 @@ main {
 .main-container {
   display: grid;
   background-color: #d2d2d2;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 100%));
+  grid-template-columns: repeat(auto, minmax(320px, 100%));
   grid-template-rows: minmax(min-content, max-content) minmax(min-content, max-content);
   grid-template-areas: "tab-and-search " "everything-else ";
 }
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .main-container {
     grid-template-columns: 1fr;
   }
@@ -122,7 +124,7 @@ main {
   grid-template-rows: 40px minmax(min-content, max-content);
   grid-template-areas: "tab   search" "alert alert";
 }
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .tab-and-search-container {
     grid-template-columns: 155px auto;
     grid-template-rows: 65px minmax(min-content, max-content);
@@ -149,7 +151,7 @@ main {
   grid-template-rows: repeat(8, auto);
   grid-template-areas: "traffic" "daily-traffic" "mobile-users" "social-stats" "new-members" "recent-activity" "message-user" "settings";
 }
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .everything-else-container {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 350px 350px 230px 350px 350px;
@@ -214,11 +216,15 @@ header div {
   display: flex;
   align-items: center;
 }
-header div .bell {
-  cursor: pointer;
+header div div .bell {
   height: 25px;
 }
-header div .bell:hover {
+@media (min-width: 400px) {
+  header div div .bell {
+    height: 30px;
+  }
+}
+header div div .bell:hover {
   animation: ring 0.3s forwards;
 }
 header div .bell-itself {
@@ -239,19 +245,67 @@ header div .divider {
     margin: 0 20px;
   }
 }
-header div .member-img {
+header div .profile-img {
   height: 30px;
+  min-height: 30px;
   width: 30px;
+  min-width: 30px;
+  border-radius: 50%;
 }
 @media (min-width: 400px) {
-  header div .member-img {
+  header div .profile-img {
     height: 33px;
+    min-height: 33px;
     width: 33px;
+    min-width: 33px;
   }
 }
 header div .member-name {
   cursor: pointer;
   margin-left: 10px;
+}
+
+#notifications {
+  position: relative;
+  display: inline-block;
+}
+
+#dropbtn {
+  color: white;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  left: -150px;
+  background-color: #f1f1f1;
+  min-width: 200px;
+  border-radius: 5px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content span {
+  background-color: #d3d4f1;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.dropdown-content a,
+.dropdown-content span {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.show {
+  display: block;
 }
 
 @keyframes ring {
@@ -284,6 +338,11 @@ nav {
   justify-content: space-between;
   align-items: center;
   height: 40px;
+}
+@media (min-width: 400px) {
+  .nav-item {
+    height: 50px;
+  }
 }
 @media (min-width: 768px) {
   .nav-item {
@@ -339,7 +398,7 @@ nav {
   background-color: #fff;
   text-align: center;
 }
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .tab {
     font-size: 20px;
   }
@@ -409,14 +468,33 @@ nav {
   font-family: "Cutive Mono", monospace;
 }
 
+#insert-line-chart {
+  max-width: calc(100vw - 25px);
+}
+@media (min-width: 768px) {
+  #insert-line-chart {
+    max-width: calc(100vw - 90px - 25px);
+  }
+}
+
+/* traffic */
+#chart-daily {
+  max-width: calc(100vw - 25px);
+}
+@media (min-width: 768px) {
+  #chart-daily {
+    max-width: calc(100vw - 90px - 25px);
+  }
+}
+@media (min-width: 1024px) {
+  #chart-daily {
+    max-width: calc(50vw - 60px);
+  }
+}
+
 /* mobile users */
 .legend-users {
   display: block;
-}
-@media (min-width: 768px) {
-  .legend-users {
-    width: 150px;
-  }
 }
 .legend-users li {
   display: flex;
@@ -451,6 +529,15 @@ nav {
 @media (min-width: 768px) {
   .doughnut-margin {
     flex-direction: row;
+  }
+}
+@media (min-width: 1024px) {
+  .doughnut-margin {
+    margin-right: 25px;
+  }
+}
+@media (min-width: 1302px) {
+  .doughnut-margin {
     margin-right: 45px;
   }
 }
@@ -477,12 +564,17 @@ nav {
 
 .social-ind {
   height: 115px;
-  width: 300px;
+  width: 200px;
+  border-radius: 5px;
   display: flex;
   align-items: center;
-  border-radius: 5px;
 }
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
+  .social-ind {
+    width: 255px;
+  }
+}
+@media (min-width: 1302px) {
   .social-ind {
     width: 325px;
     margin-bottom: 20px;
@@ -491,7 +583,12 @@ nav {
   }
 }
 .social-ind div {
-  margin: 0 50px 0 20px;
+  margin: 0 0 0 20px;
+}
+@media (min-width: 1302px) {
+  .social-ind div {
+    margin: 0 50px 0 20px;
+  }
 }
 .social-ind h2 {
   color: #7477bf;
@@ -500,10 +597,15 @@ nav {
 }
 .social-ind p {
   color: #666666;
-  font-size: 45px;
+  font-size: 25px;
   margin: 0;
   font-weight: 300;
   line-height: 1;
+}
+@media (min-width: 1024px) {
+  .social-ind p {
+    font-size: 45px;
+  }
 }
 
 .social-icon {
@@ -517,7 +619,7 @@ nav {
   margin: 15px 35px 15px 25px;
   justify-content: space-between;
 }
-@media (min-width: 768px) {
+@media (min-width: 576px) {
   .new-member {
     display: flex;
     justify-content: space-between;
@@ -531,8 +633,10 @@ nav {
   color: #7a7dc1;
 }
 
-.member-text {
-  margin-left: 10px;
+@media (min-width: 576px) {
+  .member-text {
+    margin-left: 10px;
+  }
 }
 .member-text .member-name {
   font-size: 14px;
@@ -540,6 +644,38 @@ nav {
 
 .new-member:nth-child(-n+4) {
   border-bottom: 1px solid #e9e9e9;
+}
+
+.member-left {
+  display: flex;
+  align-items: center;
+}
+
+.member-text,
+.member-date {
+  text-align: right;
+  margin-bottom: 5px;
+}
+@media (min-width: 576px) {
+  .member-text,
+.member-date {
+    text-align: inherit;
+    margin-bottom: 0;
+  }
+}
+
+.member-name,
+.member-email,
+.member-text {
+  display: inline-block;
+  width: 100%;
+}
+@media (min-width: 576px) {
+  .member-name,
+.member-email,
+.member-text {
+    display: block;
+  }
 }
 
 /* recent activity */
@@ -554,6 +690,15 @@ nav {
 .member-text .member-activity-2,
 .member-text .member-activity-3 {
   font-size: 14px;
+}
+
+.arrow {
+  text-align: right;
+}
+@media (min-width: 576px) {
+  .arrow {
+    text-align: inherit;
+  }
 }
 
 /* message users */

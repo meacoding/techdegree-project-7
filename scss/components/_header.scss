@@ -5,7 +5,7 @@
 header {
   @include flex($justify: space-between);
   padding: 0 10px;
-  @media (min-width: 400px) {
+  @include mq(400px) {
     padding: 0 20px;
   }
   background-color: #7477bf;
@@ -14,15 +14,17 @@ header {
     align-self: center;
     font-size: 15px;
 
-    @media (min-width: 400px) {
+    @include mq(400px) {
       font-size: 20px;
     }
   }
   div {
     @include flex($align: center);
-    .bell {
-      cursor: pointer;
+    div .bell {
       height: 25px;
+      @include mq(400px) {
+        height: 30px;
+      }
       &:hover {
         animation: ring 0.3s forwards;
       }
@@ -38,18 +40,22 @@ header {
       height: 30px;
       margin: 0 10px;
       background-color: #5d61bf;
-      @media (min-width: 400px) {
+      @include mq(400px) {
         height: 42px;
         margin: 0 20px;
       }
     }
-    .member-img {
+    .profile-img {
       height: 30px;
+      min-height: 30px;
       width: 30px;
-
-      @media (min-width: 400px) {
+      min-width: 30px;
+      border-radius: 50%;
+      @include mq(400px) {
         height: 33px;
+        min-height: 33px;
         width: 33px;
+        min-width: 33px;
       }
     }
     .member-name {
@@ -59,31 +65,44 @@ header {
   }
 }
 
-// .form
-// .form__label--hidden
-// .form__input
+#notifications {
+  position: relative;
+  display: inline-block;
+}
 
-// .form {
-//   width: 100%;
+#dropbtn {
+  color: white;
+  cursor: pointer;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  left: -150px;
+  background-color: #f1f1f1;
+  min-width: 200px;
+  border-radius: 5px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
 
-//   @include mq($break-m) {
-//     & .theme__colors {
-//       @include margin-hor(0);
-//     }
-//   }
+.dropdown-content span {
+  background-color: #d3d4f1;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
 
-//   &__label--hidden {
-//     display: none;
-//   }
+.dropdown-content a,
+.dropdown-content span {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
 
-//   &__input {
-//     border: none;
-//     border-bottom: 6px solid $color-form-input;
-//     outline: none;
-//     width: 90%;
-//     height: 40px;
-//     padding-left: 10px;
-//     margin: 5px 5px 15px;
-//     font-weight: bold;
-//   }
-// }
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.show {
+  display: block;
+}

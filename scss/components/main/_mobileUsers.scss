@@ -6,8 +6,8 @@
 
 .legend-users {
   display: block;
-  @media (min-width: 768px) {
-    width: 150px;
+  @include mq($break-xl) {
+    // width: 150px;
   }
   li {
     @include flex($align: center);
@@ -24,7 +24,7 @@
     display: inline-block;
     width: 100px;
     padding-left: 0;
-    @media (min-width: 768px) {
+    @include mq($break-m) {
       padding-left: 25px;
     }
   }
@@ -34,8 +34,13 @@
   margin: 0;
   @include flex($justify: center, $align: center);
   flex-direction: column;
-  @media (min-width: 768px) {
+  @include mq($break-m) {
     flex-direction: row;
+  }
+  @include mq($break-l) {
+    margin-right: 25px;
+  }
+  @include mq($break-xl) {
     margin-right: 45px;
   }
 }
