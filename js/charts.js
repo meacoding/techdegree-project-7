@@ -1,4 +1,8 @@
+/*jshint esversion: 6 */
+
 Chart.defaults.global.legend.display = false;
+
+// FYI: ES6 arrow functions - not IE11 compatible.
 
 //=================================
 //  Line Charts

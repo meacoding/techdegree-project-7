@@ -37,6 +37,7 @@ header {
     }
     .divider {
       width: 1px;
+      min-width: 1px;
       height: 30px;
       margin: 0 10px;
       background-color: #5d61bf;
@@ -74,29 +75,35 @@ header {
   color: white;
   cursor: pointer;
 }
+
 .dropdown-content {
   display: none;
   position: absolute;
   left: -150px;
-  background-color: #f1f1f1;
+  background-color: #fff;
   min-width: 200px;
   border-radius: 5px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
 
 .dropdown-content span {
-  background-color: #d3d4f1;
+  background-color: #f1f1f1;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+  border-bottom: #d2d2d2 1px solid;
 }
 
 .dropdown-content a,
 .dropdown-content span {
-  color: black;
+  color: #666;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
+}
+
+.dropdown-content a {
+  border-bottom: #eee 1px solid;
 }
 
 .dropdown-content a:hover {

@@ -163,7 +163,7 @@ const tzs = [
 ];
 
 let select = document.getElementById("timezones");
-for (i = 0; i < tzs.length; i++) {
+for (let i = 0; i < tzs.length; i++) {
     let option = document.createElement('option');
     option.value = tzs[i].value; 
     option.text = tzs[i].label;

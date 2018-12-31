@@ -4,6 +4,16 @@
 
 /* recent activity */
 
+.member-formatting-recent {
+  margin: 15px 25px 15px 25px;
+  @include mq($break-s) {
+    margin: 0 25px 0 25px;
+  }
+  @include mq($break-l) {
+    margin: 0 25px 0 35px;
+  }
+} 
+
 .member-text a {
   text-decoration: none;
   color: #666666;
@@ -18,7 +28,9 @@
 
 .arrow {
   text-align: right;
+  cursor: pointer;
   @include mq($break-s) {
     text-align: inherit;
   }
 }
+

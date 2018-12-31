@@ -1,5 +1,7 @@
 /*jshint esversion: 6 */
 
+// FYI: ES6 arrow functions - not IE11 compatible.
+
 document.addEventListener("DOMContentLoaded", e => {
   //header, new-members & recent-activity: stored data
   const members = [
@@ -185,12 +187,6 @@ document.addEventListener("DOMContentLoaded", e => {
   $members();
   $names.sort();
 
-  for (i = 0; i < $names.length; i++) {
-    let option = document.createElement("option");
-    option.value = $names[i];
-    datalist.appendChild(option);
-  }
-
   //message-user: "submit" message to user
   const sendMessageButton = document.getElementById("sendMessage");
   const searchNameInput = document.getElementById("searchName");
@@ -205,7 +201,9 @@ document.addEventListener("DOMContentLoaded", e => {
       console.log(typeof searchInput, searchInput);
       console.log(typeof messageInput, messageInput);
 
-      if (searchInput === "") {
+      if (searchInput === "" && messageInput === "") {
+        window.alert("Please input user name and message.");
+      } else if (searchInput === "") {
         window.alert("Please input user name.");
       } else if (messageInput === "") {
         window.alert("Please input message for user.");
@@ -306,6 +304,7 @@ document.addEventListener("DOMContentLoaded", e => {
       .prop("checked", true)
       .attr("checked", true)
       .val("on");
+
     $($switchProfile)
       .prop("checked", true)
       .attr("checked", true)
@@ -319,9 +318,9 @@ document.addEventListener("DOMContentLoaded", e => {
   // Close the dropdown menu if the user clicks outside of it
   window.onclick = e => {
     if (!e.target.matches("#dropbtn")) {
-      var dropdowns = document.getElementsByClassName("dropdown-content");
-      for (var i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
+      let dropdowns = document.getElementsByClassName("dropdown-content");
+      for (let i = 0; i < dropdowns.length; i++) {
+        let openDropdown = dropdowns[i];
         if (openDropdown.classList.contains("show")) {
           openDropdown.classList.remove("show");
         }
@@ -330,8 +329,8 @@ document.addEventListener("DOMContentLoaded", e => {
   };
 });
 
-//Toggling the notifications menu
-//Doesn't work inside main eventListener
-function myFunction() {
-  document.getElementById("myDropdown").classList.toggle("show");
+// Toggling the notifications menu
+// Doesn't work inside main eventListener
+function toggleDropdown() {
+  document.getElementById("dropdown").classList.toggle("show");
 }

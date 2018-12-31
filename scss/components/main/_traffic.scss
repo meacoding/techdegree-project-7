@@ -33,7 +33,11 @@
 }
 
 #insert-line-chart {
-  max-width: calc(100vw - 25px);
+  max-width: calc(100vw);
+  // overflow: hidden;
+  @include mq($break-s) {
+    max-width: calc(100vw - 25px);
+  }
   @include mq($break-m) {
     max-width: calc(100vw - 90px - 25px);
     //15px of 25px for horizontal overflow

@@ -4,18 +4,24 @@
 
 /* new members */
 
-.new-member {
-  margin: 15px 35px 15px 25px;
-  justify-content: space-between;
+.member-formatting-new {
+  margin: 15px 25px 15px 25px;
   @include mq($break-s) {
-    @include flex($justify: space-between, $align: center);
+    margin: 0 25px 0 25px;
+  }
+  @include mq($break-l) {
     margin: 0 35px 0 25px;
-    height: 70px;
   }
 }
+
 .member-email {
   color: #7a7dc1;
+  cursor: pointer;
+  &:hover {
+    color: #81C98F;
+  }
 }
+
 .member-text {
   @include mq($break-s) {
     margin-left: 10px;
@@ -24,12 +30,7 @@
     font-size: 14px;
   }
 }
-.new-member:nth-child(-n + 4) {
-  border-bottom: 1px solid #e9e9e9;
-}
-.member-left {
-  @include flex($align: center);
-}
+
 .member-text,
 .member-date {
   text-align: right;

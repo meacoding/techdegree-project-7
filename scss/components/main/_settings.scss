@@ -4,6 +4,14 @@
 
 /* settings */
 
+.form-settings {
+  padding: 0 25px 0 25px;
+  @include mq($break-l) {
+    padding: 0 25px 0 35px;
+  }
+}
+
+// Switch settings
 .onoffswitch {
   position: relative;
   width: 85px;
@@ -11,9 +19,11 @@
   -moz-user-select: none;
   -ms-user-select: none;
 }
+
 .onoffswitch-checkbox {
   display: none;
 }
+
 .onoffswitch-label {
   display: block;
   overflow: hidden;
@@ -21,12 +31,14 @@
   border: 2px solid #cacbce;
   border-radius: 50px;
 }
+
 .onoffswitch-inner {
   display: block;
   width: 200%;
   margin-left: -100%;
   transition: margin 0.3s ease-out 0s;
 }
+
 .onoffswitch-inner:before,
 .onoffswitch-inner:after {
   display: block;
@@ -41,12 +53,14 @@
   font-weight: bold;
   box-sizing: border-box;
 }
+
 .onoffswitch-inner:before {
   content: "ON";
   padding-left: 10px;
   background-color: #7477bf;
   color: #ffffff;
 }
+
 .onoffswitch-inner:after {
   content: "OFF";
   padding-right: 10px;
@@ -54,6 +68,7 @@
   color: #ffffff;
   text-align: right;
 }
+
 .onoffswitch-switch {
   display: block;
   width: 20px;
@@ -67,16 +82,15 @@
   border-radius: 50px;
   transition: all 0.3s ease-out 0s;
 }
+
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
   margin-left: 0;
 }
+
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
   right: 0px;
 }
 
-.form-settings {
-  margin: 0 35px 0 25px;
-}
 .setting-switch {
   @include flex($align: center);
   margin: 10px 0;
@@ -87,6 +101,7 @@
   font-size: 14px;
 }
 
+// Timezone settings
 select {
   font-family: $font;
   font-size: 14px;
@@ -116,13 +131,13 @@ select {
   option {
     color: #666666;
   }
-  //"placeholder" select option not visible in Firefox
 }
 
 .buttonContainer {
   justify-content: space-between;
 }
 
+// Button settings
 #saveSettings,
 #resetSettings {
   height: 50px;
@@ -135,8 +150,9 @@ select {
 #saveSettings {
   margin-right: 15px;
   background-color: #7377bf;
-} //move to media query
+}
+
 #resetSettings {
   margin-left: 15px;
   background-color: #b2b2b2;
-} //move to media query
+} 

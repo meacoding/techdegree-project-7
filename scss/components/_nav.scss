@@ -25,6 +25,7 @@ nav {
     display: block;
   }
 }
+
 .nav-item {
   @include flex($justify: space-between, $align: center);
   height: 40px;

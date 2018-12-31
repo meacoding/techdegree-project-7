@@ -5,8 +5,12 @@
 /* message users */
 
 .form-message {
-  padding: 0 35px 0 25px;
+    padding: 0 25px 0 25px;
+  @include mq($break-l) {
+    padding: 0 35px 0 25px;
+  }
 }
+
 label[for="searchName"],
 label[for="messageForUser"] {
   display: none;
@@ -23,6 +27,7 @@ button {
   margin-top: 18px;
   border-radius: 5px;
 }
+
 #searchName {
   height: 40px;
   border: 1px solid #d1d1d1;

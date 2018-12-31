@@ -6,9 +6,6 @@
 
 .legend-users {
   display: block;
-  @include mq($break-xl) {
-    // width: 150px;
-  }
   li {
     @include flex($align: center);
     margin-bottom: 20px;
@@ -30,6 +27,11 @@
   }
 }
 
+.doughnut {
+  width: 300px;
+  max-width: none;
+}
+
 .doughnut-margin {
   margin: 0;
   @include flex($justify: center, $align: center);
@@ -43,8 +45,4 @@
   @include mq($break-xl) {
     margin-right: 45px;
   }
-}
-.doughnut {
-  width: 300px;
-  max-width: none;
 }
