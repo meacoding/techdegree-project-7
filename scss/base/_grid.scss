@@ -3,14 +3,12 @@
 //=================================
 
 /* grid */
-
-// Consider prefixing -ms- to necessary grid 
-// properties. IE11 partial support.
+/* Will utlize Autoprefixer in future for learning. */
+/* IE11 partial support for grid. */
 
 //outermost container
 .body-container {
   display: grid;
-  // height: 100vh;
   margin: 0;
   grid-template-rows: auto auto auto;
   grid-template-columns: 1fr;
@@ -53,14 +51,12 @@ main {
     "tab-and-search "
     "everything-else ";
 }
-
 .tab-and-search-container {
   grid-area: tab-and-search;
 }
 .everything-else-container {
   grid-area: everything-else;
 }
-
 // tab-and-search container
 .tab-and-search-container {
   display: grid;
@@ -74,7 +70,6 @@ main {
     "tab   search"
     "alert alert";
 }
-
 .tab {
   grid-area: tab;
 }
@@ -84,7 +79,6 @@ main {
 .alert {
   grid-area: alert;
 }
-
 // everything-else container
 .everything-else-container {
   display: grid;
@@ -112,7 +106,6 @@ main {
       "message-user   settings";
   }
 }
-
 .traffic {
   grid-area: traffic;
 }

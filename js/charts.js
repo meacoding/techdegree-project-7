@@ -3,6 +3,7 @@
 Chart.defaults.global.legend.display = false;
 
 // FYI: ES6 arrow functions - not IE11 compatible.
+// Will transpile with Babel.js in future for learning purposes.
 
 //=================================
 //  Line Charts
@@ -163,7 +164,7 @@ let lineChart = new Chart(insertLineChart, {
   }
 });
 
-chartLineHourly.addEventListener("click", e => {
+chartLineHourly.addEventListener("click", () => {
   const labels = [
     "12am",
     "1",
@@ -225,7 +226,7 @@ chartLineHourly.addEventListener("click", e => {
   changeClassAndAxes(chartLineHourly, 50, 50, 200, labels, data);
 });
 
-chartLineDaily.addEventListener("click", e => {
+chartLineDaily.addEventListener("click", () => {
   const labels = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
   const data = {
     label: "Daily",
@@ -237,7 +238,7 @@ chartLineDaily.addEventListener("click", e => {
   changeClassAndAxes(chartLineDaily, 500, 500, 2000, labels, data);
 });
 
-chartLineWeekly.addEventListener("click", e => {
+chartLineWeekly.addEventListener("click", () => {
   const labels = [
     "-10 WEEKS",
     "-9 WEEKS",
@@ -260,7 +261,7 @@ chartLineWeekly.addEventListener("click", e => {
   changeClassAndAxes(chartLineWeekly, 5000, 5000, 20000, labels, data);
 });
 
-chartLineMonthly.addEventListener("click", e => {
+chartLineMonthly.addEventListener("click", () => {
   const labels = [
     "JAN",
     "FEB",
@@ -405,7 +406,7 @@ var doughnutChart = new Chart(chartDoughnutUsers, {
         borderColor: "rgba(167, 169, 228, 0.4)"
       }
     },
-    legendCallback: function(chart) {
+    legendCallback: chart => {
       const legendStyling = chart.data.datasets[0];
       let text = [];
       text.push("<ul>");

@@ -1,8 +1,9 @@
 /*jshint esversion: 6 */
 
 // FYI: ES6 arrow functions - not IE11 compatible.
+// Will transpile with Babel.js in future for learning purposes.
 
-document.addEventListener("DOMContentLoaded", e => {
+document.addEventListener("DOMContentLoaded", () => {
   //header, new-members & recent-activity: stored data
   const members = [
     {
@@ -87,18 +88,17 @@ document.addEventListener("DOMContentLoaded", e => {
 
   //header: profile image
   const profileImg = document.querySelectorAll(".profile-img")[0];
-  profileImg.style.background = `black url('${
-    members[0].img
-  }') center center / cover no-repeat`;
+  profileImg.style.background =
+    "black url('" + members[0].img + "') center center / cover no-repeat";
 
   //header: profile name
   const profileName = document.querySelectorAll(".profile-name")[0];
-  profileName.innerHTML = `${members[0].firstName} ${members[0].lastName}`;
+  profileName.innerHTML = members[0].firstName + " " + members[0].lastName;
 
   //alert: hide alert message
   const alert = document.querySelectorAll(".alert")[0];
   const hide = document.getElementById("hide");
-  hide.addEventListener("click", e => {
+  hide.addEventListener("click", () => {
     alert.style.display = "none";
   });
 
@@ -118,56 +118,61 @@ document.addEventListener("DOMContentLoaded", e => {
   };
 
   const memberImg = i => {
-    const className = `.member-img.member-${i}`;
+    const className = ".member-img.member-" + i;
     const member = document.querySelectorAll(className);
     for (let j = 0; j < member.length; j++) {
-      member[j].style.background = `black url('${
-        lastFourNewMembers[i].img
-      }') center center / cover no-repeat`;
+      member[j].style.background =
+        "black url('" +
+        lastFourNewMembers[i].img +
+        "') center center / cover no-repeat";
     }
   };
 
   const memberName = i => {
-    const className = `.member-name.member-${i}`;
+    const className = ".member-name.member-" + i;
     const member = document.querySelectorAll(className);
     for (let j = 0; j < member.length; j++) {
-      const name = `${lastFourNewMembers[i].firstName} ${
-        lastFourNewMembers[i].lastName
-      }`;
+      const name =
+        lastFourNewMembers[i].firstName + " " + lastFourNewMembers[i].lastName;
       member[j].textContent = name;
     }
   };
 
   const memberEmail = i => {
-    const className = `.member-email.member-${i}`;
+    const className = ".member-email.member-" + i;
     const member = document.querySelectorAll(className)[0];
-    const email = `${lastFourNewMembers[i].email}`;
+    const email = lastFourNewMembers[i].email;
     member.textContent = email;
   };
 
   const memberDate = i => {
-    const className = `.member-date.member-${i}`;
+    const className = ".member-date.member-" + i;
     const member = document.querySelectorAll(className)[0];
-    const date = `${members[i].signupDate}`;
+    const date = members[i].signupDate;
     member.textContent = date;
   };
 
   const memberActivity = i => {
-    const memberActivity = document.querySelectorAll(`.member-activity-${i}`);
+    const className = ".member-activity-" + i;
+    const memberActivity = document.querySelectorAll(className);
 
     const memberLookup = members.find(
       person => person.memberID === lastFourOfActivity[i].memberID
     );
 
-    memberActivity[0].style.background = `black url('${
-      memberLookup.img
-    }') center center / cover no-repeat`;
+    memberActivity[0].style.background =
+      "black url('" + memberLookup.img + "') center center / cover no-repeat";
 
-    memberActivity[1].innerHTML = `${memberLookup.firstName} ${
-      memberLookup.lastName
-    } ${lastFourOfActivity[i].action} ${lastFourOfActivity[i].thing}`;
+    memberActivity[1].innerHTML =
+      memberLookup.firstName +
+      " " +
+      memberLookup.lastName +
+      " " +
+      lastFourOfActivity[i].action +
+      " " +
+      lastFourOfActivity[i].thing;
 
-    memberActivity[2].innerHTML = `${lastFourOfActivity[i].age}`;
+    memberActivity[2].innerHTML = lastFourOfActivity[i].age;
   };
 
   iterateMultipleTimes(4, memberActivity);
