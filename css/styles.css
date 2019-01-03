@@ -95,6 +95,8 @@ main,
 }
 
 /* grid */
+/* Will utlize Autoprefixer in future for learning. */
+/* IE11 partial support for grid. */
 .body-container {
   display: grid;
   margin: 0;
@@ -369,6 +371,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   height: 40px;
+  margin: 0 auto;
 }
 @media (min-width: 400px) {
   .nav-item {
@@ -466,6 +469,47 @@ nav {
 }
 .alert-message span#hide:hover {
   cursor: pointer;
+}
+
+.search {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.search input {
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  max-width: 380px;
+  height: 30px;
+  margin: 0 5px;
+  padding: 11px 20px;
+  border: 1px solid #dbdbdb;
+  border-radius: 5px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: url(../../images/search-solid.svg) no-repeat #ffffff;
+  background-position: 96%;
+  background-size: 16px;
+  text-indent: 0.01px;
+}
+.search input::placeholder {
+  color: #d1d1d1;
+}
+@media (min-width: 576px) {
+  .search input {
+    width: calc(100vw - 250px);
+    margin: 0 10px 0 0;
+  }
+}
+@media (min-width: 1024px) {
+  .search input {
+    width: 380px;
+    height: 40px;
+    margin: 0 25px 0 0;
+  }
 }
 
 /* traffic */

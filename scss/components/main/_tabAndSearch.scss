@@ -15,7 +15,7 @@
     font-size: 20px;
   }
 }
- 
+
 .search {
   background-color: #fbfbfb;
   border-left: 1px solid #dfdfdf;
@@ -47,3 +47,43 @@
     }
   }
 }
+
+.search {
+  @include flex($justify: flex-end, $align: center);
+
+  input {
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    max-width: 380px;
+    height: 30px;
+    margin: 0 5px;
+    padding: 11px 20px;
+    border: 1px solid #dbdbdb;
+    border-radius: 5px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: url(../../images/search-solid.svg) no-repeat #ffffff;
+    background-position: 96%;
+    background-size: 16px;
+    text-indent: 0.01px;
+    &::placeholder {
+      color: #d1d1d1;
+    }
+    @include mq($break-s) {
+      width: calc(100vw - 250px);
+      margin: 0 10px 0 0;
+    }
+    @include mq($break-l) {
+      width: 380px;
+      height: 40px;
+      margin: 0 25px 0 0;
+    }
+  }
+}
+
+// Font Awesome: search-solid
+// Font Awesome Free 5.5.0 by @fontawesome - https://fontawesome.com
+// License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)

@@ -184,13 +184,19 @@ document.addEventListener("DOMContentLoaded", () => {
   //message-user: search input - autocomplete
   let $names = [];
 
-  let $members = () => {
+  let $members = e => {
     for (let i = 0; i < members.length; i++) {
       $names.push(members[i].firstName + " " + members[i].lastName);
     }
   };
   $members();
   $names.sort();
+
+  for (let i = 0; i < $names.length; i++) {
+    let option = document.createElement("option");
+    option.value = $names[i];
+    datalist.appendChild(option);
+  }
 
   //message-user: "submit" message to user
   const sendMessageButton = document.getElementById("sendMessage");
