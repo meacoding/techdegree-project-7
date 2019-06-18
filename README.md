@@ -1,7 +1,33 @@
-# Techdegree Project 7
+# Dashboard - Techdegree FEWD Project 7
 
-Front-End Web Development
+An interactive dashboard for a faux web application.  
 
-Build dashboard with JavaScript and CSS animations.
+![dashboard screenshot](https://user-images.githubusercontent.com/16675876/59709570-1c473100-91d5-11e9-8281-b55e531bee26.jpg)
 
-Mockup provided.
+## Technologies and skills used 
+
++ HTML
++ CSS
++ SASS
++ JavaScript
++ jQuery
++ Chart.js plugin
++ SVG manipulation 
+
+## Reason for creation
+To build a comprehensive project utilizing skills learned up to this point in the Treehouse Techdegree FEWD program. Build dashboard with JavaScript and CSS animations.
+
+## What I did
+This project matches the mockup provided for large screens. The small and medium screen size layouts were left to my discretion. The grid is supported with CSS Grid Layout. I utilized SASS to keep the styling manageable. The chart widgets are created with Chart.js. The interactivity is written in JavaScript and jQuery. 
+ 
+## Backstory
+Let me just say that of all nine projects, this was the most frustrating to build but the most satisfying after it was complete. See the image below that compares the mockup (left) to my project (right).
+
+Figuring out Chart.js was a feat. Sure, I consulted the documentation, but like many documentations it doesn't contain every little capability or command. My charts match every mockup detail except two. I omitted these details because they weren't required for project completion and time was of the essence.
+
+I should elaborate on two other aspects of the project. The SVGs in the Social Stats section required manual tweaking. Secondly, I chose to to go with dynamically created content, instead of hard-coded static HTML. My content in this project is generated from an array of JavaScript objects and moving it to accept real, remote JSON would be straightforward. 
+
+![dashboard mockup-to-actual screenshot](https://user-images.githubusercontent.com/16675876/59711458-2c610f80-91d9-11e9-8764-597160c624b5.jpg)
+
+## License
+None.
