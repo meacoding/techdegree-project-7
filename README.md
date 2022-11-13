@@ -27,7 +27,7 @@ Figuring out Chart.js was a feat. Sure, I consulted the documentation, but like 
 
 I should elaborate on two other aspects of the project. The SVGs in the Social Stats section required manual tweaking. Secondly, I chose to to go with dynamically created content, instead of hard-coded static HTML. My content in this project is generated from an array of JavaScript objects and moving it to accept real, remote JSON would be straightforward. 
 
-![dashboard mockup-to-actual screenshot](https://user-images.githubusercontent.com/16675876/59711458-2c610f80-91d9-11e9-8764-597160c624b5.jpg)
+![dashboard mockup-to-actual screenshot](https://user-images.githubusercontent.com/16675876/201547871-cb58c32c-a040-4a57-b3d9-549324a57f76.jpg)
 
 ## License
 None.
