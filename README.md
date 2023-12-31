@@ -25,7 +25,7 @@ Let me just say that of all nine projects, this was the most frustrating to buil
 
 Figuring out Chart.js was a feat. Sure, I consulted the documentation, but like many documentations it doesn't contain every little capability or command. My charts match every mockup detail except two. I omitted these details because they weren't required for project completion and time was of the essence.
 
-I should elaborate on two other aspects of the project. The SVGs in the Social Stats section required manual tweaking. Secondly, I chose to go with dynamically created content, instead of hard-coded static HTML. My content in this project is generated from an array of JavaScript objects and moving it to accept real, remote JSON would be straightforward. 
+I should elaborate on two other aspects of the project. The SVGs in the Social Stats section required manual tweaking. Secondly, I chose to go with dynamically created content, instead of hard-coded static HTML. My content in this project is generated from an array of JavaScript objects and changing it to accept real, remote JSON would be straightforward. 
 
 ![dashboard mockup-to-actual screenshot](https://user-images.githubusercontent.com/16675876/201547871-cb58c32c-a040-4a57-b3d9-549324a57f76.jpg)
 
